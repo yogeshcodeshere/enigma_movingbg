@@ -48,15 +48,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-        isScrolled
+    <header
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${isScrolled
           ? 'bg-[#06060a]/80 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-black/70'
           : 'bg-transparent border-b border-transparent backdrop-blur-none'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 h-20 sm:h-24 flex items-center justify-between sm:justify-center sm:gap-10 md:gap-12 lg:gap-14">
-        
+
         {/* Centered Desktop Navigation Links */}
         <nav className="hidden sm:flex items-center gap-7 md:gap-9 lg:gap-11 text-sm md:text-[15px] font-semibold text-zinc-200">
           {navLinks.map((link) => (

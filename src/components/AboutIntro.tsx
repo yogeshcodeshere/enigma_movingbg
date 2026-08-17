@@ -41,7 +41,7 @@ export const AboutIntro: React.FC = () => {
             <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white leading-tight">
               {ABOUT_DATA.heading}
             </h2>
-            
+
             {/* Highlight Box */}
             <div className="mt-6 p-6 sm:p-8 rounded-3xl glass-panel border border-purple-500/30 relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />

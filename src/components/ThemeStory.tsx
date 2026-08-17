@@ -39,7 +39,7 @@ export const ThemeStory: React.FC = () => {
         <div className="absolute bottom-0 left-10 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
-          
+
           {/* Left: 2097 Story Narrative */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase">
@@ -131,11 +131,10 @@ export const ThemeStory: React.FC = () => {
               {/* Feedback Alert */}
               {feedbackMessage && (
                 <div
-                  className={`p-3 rounded-xl text-xs flex items-center gap-2 ${
-                    isDecrypted
+                  className={`p-3 rounded-xl text-xs flex items-center gap-2 ${isDecrypted
                       ? 'bg-emerald-950/50 border border-emerald-500/40 text-emerald-300'
                       : 'bg-red-950/50 border border-red-500/40 text-red-300'
-                  }`}
+                    }`}
                 >
                   {isDecrypted ? (
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />

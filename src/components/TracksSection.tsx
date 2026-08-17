@@ -53,11 +53,10 @@ export const TracksSection: React.FC<TracksSectionProps> = ({ onSelectTrack }) =
             <div
               key={track.id}
               onClick={() => setActiveTrackId(track.id)}
-              className={`p-6 sm:p-8 rounded-3xl transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xl ${
-                isSelected
+              className={`p-6 sm:p-8 rounded-3xl transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xl ${isSelected
                   ? 'glass-panel border-purple-500 bg-purple-950/20 shadow-purple-900/30 ring-1 ring-purple-500/30'
                   : 'glass-panel-interactive'
-              }`}
+                }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-6">

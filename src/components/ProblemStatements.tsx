@@ -69,11 +69,10 @@ export const ProblemStatements: React.FC<ProblemStatementsProps> = ({ onSelectCh
               key={domain}
               id={`filter-${domain.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
               onClick={() => setSelectedDomain(domain)}
-              className={`px-3.5 py-2 rounded-xl text-xs font-mono-code transition-all cursor-pointer ${
-                selectedDomain === domain
+              className={`px-3.5 py-2 rounded-xl text-xs font-mono-code transition-all cursor-pointer ${selectedDomain === domain
                   ? 'bg-purple-600 text-white font-bold shadow-lg shadow-purple-900/40 border border-purple-400/40'
                   : 'glass-pill text-zinc-400 hover:text-zinc-200 hover:bg-white/10'
-              }`}
+                }`}
             >
               {domain}
             </button>

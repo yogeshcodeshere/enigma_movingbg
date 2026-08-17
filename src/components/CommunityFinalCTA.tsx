@@ -146,7 +146,7 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
             <button
               id="btn-final-enter-enigma"
               onClick={onOpenRegister}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold font-display text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-2xl shadow-purple-900/50 hover:scale-105 active:scale-98 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold font-display text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-xl shadow-purple-950/50 hover:scale-105 active:scale-98 transition-all cursor-pointer"
             >
               <span>ENTER ENIGMA →</span>
             </button>
@@ -161,7 +161,7 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
           </div>
 
           <div className="text-xs font-mono-code text-zinc-500 pt-4">
-            REGISTRATION DEADLINE: OCTOBER 20, 2026 // LIMITED SLOTS REMAINING
+            REGISTRATION DEADLINE: 10 SEPTEMBER 2026 // LIMITED SQUAD SLOTS
           </div>
         </div>
       </div>

@@ -36,13 +36,16 @@
     width: 5px;
     height: 5px;
   }
+
   ::-webkit-scrollbar-track {
     background: #050508;
   }
+
   ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 9999px;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: #a855f7;
   }
@@ -140,19 +143,33 @@
    ========================================================== */
 
 @keyframes genesisFlicker {
-  0%, 18.999%, 21.5%, 62.999%, 64.5%, 65.999%, 71%, 100% {
+
+  0%,
+  18.999%,
+  21.5%,
+  62.999%,
+  64.5%,
+  65.999%,
+  71%,
+  100% {
     opacity: 1;
     filter: drop-shadow(0 0 45px rgba(168, 85, 247, 0.5)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
   }
-  19%, 21.499% {
+
+  19%,
+  21.499% {
     opacity: 0.35;
     filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.15));
   }
-  63%, 64.499% {
+
+  63%,
+  64.499% {
     opacity: 0.55;
     filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.25));
   }
-  66%, 70.999% {
+
+  66%,
+  70.999% {
     opacity: 0.85;
     filter: drop-shadow(0 0 32px rgba(168, 85, 247, 0.4));
   }
@@ -173,7 +190,7 @@
     line-height: 0.95 !important;
     letter-spacing: -0.04em !important;
   }
-  
+
   .section-title {
     font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
   }
