@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useState, useRef, useEffect } from 'react';
 import { X, Terminal as TerminalIcon, CornerDownLeft } from 'lucide-react';
-import { HERO_DATA, PRIZES, RULES, TRACKS } from '../data/hackathonData';
+import { RULES, TRACKS } from '../data/hackathonData';
 
 interface CipherTerminalModalProps {
   isOpen: boolean;
@@ -137,11 +139,11 @@ export const CipherTerminalModal: React.FC<CipherTerminalModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-fadeIn font-mono-code">
-      <div className="relative w-full max-w-2xl bg-[#09090f] border border-purple-500/40 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[520px]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-2xl animate-fadeIn font-mono-code">
+      <div className="relative w-full max-w-2xl glass-modal rounded-3xl overflow-hidden flex flex-col h-[520px]">
         
         {/* Terminal Header */}
-        <div className="flex items-center justify-between px-4 py-3 bg-[#0d0d18] border-b border-white/10 text-xs text-zinc-400">
+        <div className="flex items-center justify-between px-4 py-3 bg-[#0d0d18]/80 border-b border-white/10 text-xs text-zinc-400">
           <div className="flex items-center gap-2">
             <TerminalIcon className="w-4 h-4 text-purple-400" />
             <span className="text-white font-bold">ENIGMA_CONSOLE // root@siesgst</span>
@@ -151,7 +153,7 @@ export const CipherTerminalModal: React.FC<CipherTerminalModalProps> = ({
             <span className="text-[10px] text-emerald-400">ONLINE</span>
             <button
               onClick={onClose}
-              className="p-1 hover:text-white rounded transition-colors"
+              className="p-1 hover:text-white glass-pill rounded-lg transition-colors cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>

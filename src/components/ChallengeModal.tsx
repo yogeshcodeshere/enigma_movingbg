@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { X, CheckCircle2, FileText, Cpu, ArrowRight, ShieldCheck } from 'lucide-react';
+import { X, CheckCircle2, FileText, Cpu, ArrowRight } from 'lucide-react';
 import { ProblemStatement } from '../types';
 
 interface ChallengeModalProps {
@@ -31,24 +33,24 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl animate-fadeIn">
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0a0a10] border border-purple-500/30 rounded-2xl shadow-2xl p-6 sm:p-8 font-sans">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-2xl animate-fadeIn">
+      <div className="relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] overflow-y-auto glass-modal rounded-3xl p-5 sm:p-8 font-sans">
         
         {/* Close Button */}
         <button
           id="btn-close-challenge-modal"
           onClick={onClose}
-          className="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+          className="absolute top-5 right-5 sm:top-6 sm:right-6 p-2 rounded-full glass-pill text-zinc-400 hover:text-white transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Header Tags */}
         <div className="flex flex-wrap items-center gap-2.5 mb-4 text-xs font-mono-code">
-          <span className="px-3 py-1 rounded bg-purple-500/10 border border-purple-500/30 text-purple-300 font-bold">
+          <span className="px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/30 text-purple-300 font-bold">
             {challenge.domain}
           </span>
-          <span className={`px-2.5 py-1 rounded border ${getDifficultyColor(challenge.difficulty)} font-semibold`}>
+          <span className={`px-2.5 py-1 rounded-md border ${getDifficultyColor(challenge.difficulty)} font-semibold`}>
             DIFFICULTY: {challenge.difficulty}
           </span>
           <span className="text-zinc-500 ml-auto">
@@ -57,20 +59,20 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
         </div>
 
         {/* Title */}
-        <h2 className="text-2xl sm:text-3xl font-bold font-display text-white mb-4 leading-tight">
+        <h2 className="text-xl sm:text-3xl font-bold font-display text-white mb-4 leading-tight">
           {challenge.title}
         </h2>
 
         {/* Description */}
-        <p className="text-base text-zinc-300 mb-6 leading-relaxed">
+        <p className="text-sm sm:text-base text-zinc-300 mb-6 leading-relaxed font-light">
           {challenge.description}
         </p>
 
         {/* Background Story */}
         {challenge.backgroundStory && (
-          <div className="mb-6 p-4 rounded-xl bg-white/5 border border-white/10 font-mono-code text-xs text-zinc-300 space-y-1">
+          <div className="mb-6 p-4 rounded-2xl glass-panel font-mono-code text-xs text-zinc-300 space-y-1">
             <span className="text-[10px] text-purple-400 uppercase tracking-widest block font-bold">CONTEXT / THREAT MODEL</span>
-            <p className="text-zinc-300 leading-relaxed font-sans">{challenge.backgroundStory}</p>
+            <p className="text-zinc-300 leading-relaxed font-sans font-light">{challenge.backgroundStory}</p>
           </div>
         )}
 
@@ -82,7 +84,7 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
           </h4>
           <div className="flex flex-wrap gap-2">
             {challenge.techStack.map((tech, i) => (
-              <span key={i} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-mono-code text-zinc-200">
+              <span key={i} className="px-2.5 py-1 rounded-md glass-pill text-xs font-mono-code text-zinc-200">
                 {tech}
               </span>
             ))}
@@ -94,7 +96,7 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
           <h4 className="text-xs font-mono-code text-zinc-400 uppercase tracking-wider mb-2">
             EXPECTED SYSTEM OUTCOMES
           </h4>
-          <ul className="space-y-2 text-sm text-zinc-300">
+          <ul className="space-y-2 text-xs sm:text-sm text-zinc-300">
             {challenge.expectedOutcomes.map((item, i) => (
               <li key={i} className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
@@ -112,7 +114,7 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {challenge.deliverables.map((deliv, i) => (
-              <div key={i} className="p-3 rounded-lg bg-white/5 border border-white/10 text-xs text-zinc-300">
+              <div key={i} className="p-3 rounded-xl glass-panel text-xs text-zinc-300">
                 {deliv}
               </div>
             ))}
@@ -127,7 +129,7 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
               onSelectForRegister(challenge);
               onClose();
             }}
-            className="w-full sm:w-auto flex-1 py-3 px-6 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold font-display text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+            className="w-full sm:w-auto flex-1 py-3 px-6 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold font-display text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg cursor-pointer"
           >
             <span>REGISTER WITH THIS CHALLENGE</span>
             <ArrowRight className="w-4 h-4" />
@@ -135,7 +137,7 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
 
           <button
             onClick={onClose}
-            className="w-full sm:w-auto py-3 px-6 rounded-xl bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white text-xs font-mono-code transition-colors cursor-pointer"
+            className="w-full sm:w-auto py-3 px-6 rounded-2xl glass-pill hover:bg-white/10 text-zinc-400 hover:text-white text-xs font-mono-code transition-colors cursor-pointer"
           >
             Close
           </button>

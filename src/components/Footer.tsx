@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { Terminal, Shield, ArrowUp, Github, Disc as Discord, Linkedin, Instagram, Mail } from 'lucide-react';
+import { ArrowUp, Github, Disc as Discord, Linkedin, Instagram, Mail } from 'lucide-react';
 
 interface FooterProps {
   onScrollTo: (id: string) => void;
@@ -11,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollTo }) => {
   };
 
   return (
-    <footer className="w-full bg-[#040407] border-t border-white/10 pt-16 pb-12 px-4 sm:px-8 font-sans relative z-20">
+    <footer className="w-full bg-[#050508]/85 backdrop-blur-2xl border-t border-white/10 pt-16 pb-12 px-4 sm:px-8 font-sans relative z-20">
       <div className="max-w-7xl mx-auto">
         
         {/* Top Ticker Row */}
@@ -26,12 +28,12 @@ export const Footer: React.FC<FooterProps> = ({ onScrollTo }) => {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4 text-xs font-mono-code">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono-code">
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-purple-900/30 text-zinc-300 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass-pill hover:bg-purple-900/30 text-zinc-300 hover:text-white transition-colors"
             >
               <Instagram className="w-3.5 h-3.5 text-purple-400" />
               <span>Instagram</span>
@@ -41,7 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollTo }) => {
               href="https://linkedin.com"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-purple-900/30 text-zinc-300 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass-pill hover:bg-purple-900/30 text-zinc-300 hover:text-white transition-colors"
             >
               <Linkedin className="w-3.5 h-3.5 text-cyan-400" />
               <span>LinkedIn</span>
@@ -51,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollTo }) => {
               href="https://discord.com"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-purple-900/30 text-zinc-300 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass-pill hover:bg-purple-900/30 text-zinc-300 hover:text-white transition-colors"
             >
               <span className="text-indigo-400 font-bold">#</span>
               <span>Discord</span>
@@ -61,7 +63,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollTo }) => {
               href="https://github.com"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-purple-900/30 text-zinc-300 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass-pill hover:bg-purple-900/30 text-zinc-300 hover:text-white transition-colors"
             >
               <Github className="w-3.5 h-3.5 text-zinc-300" />
               <span>GitHub</span>
@@ -124,7 +126,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollTo }) => {
             <button
               id="btn-footer-back-to-top"
               onClick={scrollToTop}
-              className="p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white transition-colors flex items-center gap-2 font-mono-code text-xs cursor-pointer"
+              className="p-3 rounded-2xl glass-pill hover:bg-white/10 text-zinc-300 hover:text-white transition-all flex items-center gap-2 font-mono-code text-xs cursor-pointer"
             >
               <span>RETURN TO ORBIT</span>
               <ArrowUp className="w-4 h-4 text-purple-400" />
@@ -139,7 +141,7 @@ export const Footer: React.FC<FooterProps> = ({ onScrollTo }) => {
 
         </div>
 
-        {/* Bottom Copyright & Manifesto Microcopy */}
+        {/* Bottom Copyright */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-mono-code">
           <div>
             © 2026 ENIGMA. ALL RIGHTS RESERVED.

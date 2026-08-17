@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Target, ArrowRight, Cpu, Filter, Sparkles } from 'lucide-react';
+import { Target, ArrowRight } from 'lucide-react';
 import { PROBLEM_STATEMENTS } from '../data/hackathonData';
 import { ProblemStatement } from '../types';
 
@@ -41,36 +43,36 @@ export const ProblemStatements: React.FC<ProblemStatementsProps> = ({ onSelectCh
   };
 
   return (
-    <section id="missions" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
+    <section id="missions" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       {/* Section Header */}
       <div className="mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
           <Target className="w-3.5 h-3.5 text-purple-400" />
           <span>THE MISSIONS</span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+            <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
               CHOOSE YOUR ENIGMA.
             </h2>
-            <p className="text-base sm:text-lg text-zinc-300 max-w-2xl font-light leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-zinc-300 max-w-2xl font-light leading-relaxed">
               Different problems. Different domains. One objective — build something that matters. Explore the challenges, assemble your team, and choose the problem you're ready to decode.
             </p>
           </div>
         </div>
 
-        {/* Filter Pills */}
+        {/* Filter Pills with Glass Effect */}
         <div className="flex flex-wrap gap-2 mt-8">
           {domains.map((domain) => (
             <button
               key={domain}
               id={`filter-${domain.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
               onClick={() => setSelectedDomain(domain)}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-mono-code transition-all cursor-pointer ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-mono-code transition-all cursor-pointer ${
                 selectedDomain === domain
-                  ? 'bg-purple-600 text-white font-bold shadow-md shadow-purple-900/40'
-                  : 'bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-zinc-200 border border-white/5'
+                  ? 'bg-purple-600 text-white font-bold shadow-lg shadow-purple-900/40 border border-purple-400/40'
+                  : 'glass-pill text-zinc-400 hover:text-zinc-200 hover:bg-white/10'
               }`}
             >
               {domain}
@@ -84,7 +86,7 @@ export const ProblemStatements: React.FC<ProblemStatementsProps> = ({ onSelectCh
         {filteredChallenges.map((challenge) => (
           <div
             key={challenge.id}
-            className="p-6 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:-translate-y-1"
+            className="p-6 sm:p-7 rounded-3xl glass-panel-interactive flex flex-col justify-between group shadow-xl"
           >
             <div>
               {/* Card Meta Top */}
@@ -92,7 +94,7 @@ export const ProblemStatements: React.FC<ProblemStatementsProps> = ({ onSelectCh
                 <span className="text-purple-400 font-bold uppercase tracking-wider text-[11px]">
                   {challenge.domain}
                 </span>
-                <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${getDifficultyColor(challenge.difficulty)}`}>
+                <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold border ${getDifficultyColor(challenge.difficulty)}`}>
                   {challenge.difficulty}
                 </span>
               </div>
@@ -103,7 +105,7 @@ export const ProblemStatements: React.FC<ProblemStatementsProps> = ({ onSelectCh
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-zinc-400 font-light leading-relaxed mb-6 line-clamp-3">
+              <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed mb-6 line-clamp-3">
                 {challenge.description}
               </p>
 
@@ -116,7 +118,7 @@ export const ProblemStatements: React.FC<ProblemStatementsProps> = ({ onSelectCh
                   {challenge.techStack.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[11px] font-mono-code text-zinc-300"
+                      className="px-2 py-0.5 rounded-md glass-pill text-[11px] font-mono-code text-zinc-300"
                     >
                       {tech}
                     </span>
@@ -130,7 +132,7 @@ export const ProblemStatements: React.FC<ProblemStatementsProps> = ({ onSelectCh
               <button
                 id={`btn-view-challenge-${challenge.id.toLowerCase()}`}
                 onClick={() => onSelectChallenge(challenge)}
-                className="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-purple-600 hover:text-white border border-white/10 text-xs font-mono-code text-zinc-300 font-semibold flex items-center justify-between transition-all cursor-pointer group-hover:border-purple-500/40"
+                className="w-full py-2.5 px-4 rounded-xl glass-pill hover:bg-purple-600 hover:text-white text-xs font-mono-code text-zinc-300 font-semibold flex items-center justify-between transition-all cursor-pointer group-hover:border-purple-500/40"
               >
                 <span>VIEW CHALLENGE</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

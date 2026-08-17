@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-display: 'Syne', 'Space Grotesk', sans-serif;
+    --font-accent: 'Cabinet Grotesk', sans-serif;
+
+    /* Minimalistic Obsidian & Violet Palette */
+    --bg-base: #06060a;
+    --bg-surface: rgba(13, 13, 22, 0.65);
+    --bg-surface-hover: rgba(22, 22, 38, 0.75);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glass-highlight: rgba(255, 255, 255, 0.16);
+    --glow-violet: rgba(168, 85, 247, 0.35);
+    --glow-cyan: rgba(6, 182, 212, 0.35);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    color: #f1f1f5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Minimalistic ultra-thin custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050508;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a855f7;
+  }
+}
+
+/* ==========================================================
+   GLASSMORPHISM DESIGN SYSTEM UTILITIES
+   ========================================================== */
+
+/* Core Glassmorphic Surface Panel */
+.glass-panel {
+  background: rgba(10, 10, 18, 0.55);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Interactive Glass Panel with Refined Glow Hover State */
+.glass-panel-interactive {
+  background: rgba(10, 10, 18, 0.5);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-interactive:hover {
+  background: rgba(18, 18, 32, 0.65);
+  border-color: rgba(168, 85, 247, 0.35);
+  box-shadow: 0 12px 36px -2px rgba(0, 0, 0, 0.6), 0 0 20px -2px rgba(168, 85, 247, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* High-Elevation Glass Modal Dialogs */
+.glass-modal {
+  background: rgba(8, 8, 14, 0.85);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.8), 0 0 40px -8px rgba(168, 85, 247, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Glass Badge / Pill */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Glass Form Inputs */
+.glass-input {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  background: rgba(6, 6, 12, 0.7);
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Ultra-Subtle Almost Invisible Navigation Bar */
+.glass-nav-invisible {
+  background: rgba(6, 6, 10, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-nav-invisible:hover {
+  background: rgba(6, 6, 10, 0.35);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Glow Text Effects */
+.glow-purple {
+  text-shadow: 0 0 24px rgba(168, 85, 247, 0.45);
+}
+
+.glow-cyan {
+  text-shadow: 0 0 24px rgba(6, 182, 212, 0.45);
+}
+
+/* ==========================================================
+   GENESIS CYBERPUNK FLICKER ANIMATION
+   ========================================================== */
+
+@keyframes genesisFlicker {
+  0%, 18.999%, 21.5%, 62.999%, 64.5%, 65.999%, 71%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 45px rgba(168, 85, 247, 0.5)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+  }
+  19%, 21.499% {
+    opacity: 0.35;
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.15));
+  }
+  63%, 64.499% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.25));
+  }
+  66%, 70.999% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 32px rgba(168, 85, 247, 0.4));
+  }
+}
+
+.genesis-flicker {
+  animation: genesisFlicker 5.5s infinite ease-in-out;
+}
+
+/* ==========================================================
+   EXPLICIT MEDIA QUERIES FOR COMPREHENSIVE RESPONSIVENESS
+   ========================================================== */
+
+/* 1. Mobile Handhelds (max-width: 640px) */
+@media (max-width: 640px) {
+  .hero-headline {
+    font-size: clamp(3.25rem, 14vw, 5.5rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.04em !important;
+  }
+  
+  .section-title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+  }
+
+  .glass-modal {
+    max-height: 88dvh !important;
+    width: 95vw !important;
+    padding: 1.25rem !important;
+    border-radius: 1.25rem !important;
+  }
+
+  .countdown-box {
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* 2. Tablets and Medium Devices (min-width: 641px) and (max-width: 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-headline {
+    font-size: clamp(5.5rem, 12vw, 8.5rem) !important;
+  }
+}
+
+/* 3. Accessibility & Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

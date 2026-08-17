@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Clock, Calendar, CheckCircle2, Shield, Flame, Activity } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import { PROTOCOL_STEPS, TIMELINE_EVENTS } from '../data/hackathonData';
 
 export const HowItWorksTimeline: React.FC = () => {
@@ -37,32 +39,32 @@ export const HowItWorksTimeline: React.FC = () => {
   }, [targetDate]);
 
   return (
-    <section id="protocol" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
+    <section id="protocol" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       
       {/* 07 — HOW IT WORKS */}
       <div className="mb-28">
         <div className="mb-14 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
             <span>THE PROTOCOL</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+          <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
             FROM IDEA TO EXECUTION.
           </h2>
-          <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
             Follow the six stages of the ENIGMA deployment sequence — from initial squad assembly to final victory on stage.
           </p>
         </div>
 
-        {/* 6 Step Interactive Progression Grid */}
+        {/* 6 Step Interactive Progression Grid with Glassmorphism */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROTOCOL_STEPS.map((step, idx) => (
             <div
               key={step.number}
               onClick={() => setActiveStep(idx)}
-              className={`p-6 sm:p-8 rounded-2xl bg-black/40 backdrop-blur-md border transition-all duration-300 flex flex-col justify-between group shadow-xl cursor-pointer ${
+              className={`p-6 sm:p-8 rounded-3xl transition-all duration-300 flex flex-col justify-between group shadow-xl cursor-pointer ${
                 activeStep === idx
-                  ? 'border-purple-500 bg-purple-950/20 shadow-purple-900/30'
-                  : 'border-white/10 hover:border-white/20'
+                  ? 'glass-panel border-purple-500 bg-purple-950/20 shadow-purple-900/30 ring-1 ring-purple-500/30'
+                  : 'glass-panel-interactive'
               }`}
             >
               <div>
@@ -70,7 +72,7 @@ export const HowItWorksTimeline: React.FC = () => {
                   <span className="text-3xl font-black font-display text-zinc-600 group-hover:text-purple-400 transition-colors">
                     {step.number}
                   </span>
-                  <span className="text-[10px] font-mono-code px-2.5 py-1 rounded bg-white/5 border border-white/10 text-purple-300 font-semibold uppercase">
+                  <span className="text-[10px] font-mono-code px-2.5 py-1 rounded-md glass-pill text-purple-300 font-semibold uppercase">
                     {step.milestone}
                   </span>
                 </div>
@@ -79,7 +81,7 @@ export const HowItWorksTimeline: React.FC = () => {
                   {step.title}
                 </h3>
 
-                <p className="text-sm font-medium text-zinc-200 mb-3">
+                <p className="text-xs sm:text-sm font-medium text-zinc-200 mb-3">
                   {step.description}
                 </p>
 
@@ -102,23 +104,23 @@ export const HowItWorksTimeline: React.FC = () => {
       {/* 08 — TIMELINE & COUNTDOWN */}
       <div id="timeline" className="pt-12 border-t border-white/10">
         <div className="mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
             <Clock className="w-3.5 h-3.5 text-purple-400" />
             <span>THE COUNTDOWN</span>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div>
-              <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+              <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
                 EVERY SECOND COUNTS.
               </h2>
-              <p className="text-base sm:text-lg text-zinc-300 max-w-xl font-light leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-zinc-300 max-w-xl font-light leading-relaxed">
                 Mark your calendars. Sync your schedules. The clock is ticking toward the grand opening ceremony.
               </p>
             </div>
 
-            {/* Live Countdown Display Box */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-950/40 via-[#0a0a14] to-black/60 border border-purple-500/30 shadow-2xl flex items-center gap-4 sm:gap-6">
+            {/* Live Countdown Display Box with Glassmorphism */}
+            <div className="countdown-box p-6 rounded-3xl glass-panel border border-purple-500/30 shadow-2xl flex items-center gap-4 sm:gap-6 justify-center">
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-black font-display text-white tracking-tight">
                   {String(timeLeft.days).padStart(2, '0')}
@@ -159,10 +161,10 @@ export const HowItWorksTimeline: React.FC = () => {
             return (
               <div
                 key={index}
-                className={`p-6 rounded-2xl bg-black/40 backdrop-blur-md border transition-all duration-300 flex flex-col justify-between shadow-xl ${
+                className={`p-6 sm:p-7 rounded-3xl transition-all duration-300 flex flex-col justify-between shadow-xl ${
                   isActive
-                    ? 'border-purple-500 bg-purple-950/30 shadow-purple-900/30'
-                    : 'border-white/10 hover:border-white/20'
+                    ? 'glass-panel border-purple-500 bg-purple-950/30 shadow-purple-900/30 ring-1 ring-purple-500/30'
+                    : 'glass-panel-interactive'
                 }`}
               >
                 <div>
@@ -171,12 +173,12 @@ export const HowItWorksTimeline: React.FC = () => {
                       {event.date}
                     </span>
                     <span
-                      className={`text-[10px] font-mono-code px-2 py-0.5 rounded font-semibold uppercase ${
+                      className={`text-[10px] font-mono-code px-2.5 py-0.5 rounded-md font-semibold uppercase ${
                         isCompleted
-                          ? 'bg-zinc-800 text-zinc-400 border border-zinc-700'
+                          ? 'bg-zinc-800/80 text-zinc-400 border border-zinc-700'
                           : isActive
                           ? 'bg-purple-500 text-black font-bold animate-pulse'
-                          : 'bg-white/5 text-zinc-400 border border-white/10'
+                          : 'glass-pill text-zinc-400'
                       }`}
                     >
                       {event.status}
@@ -187,7 +189,7 @@ export const HowItWorksTimeline: React.FC = () => {
                     {event.title}
                   </h3>
 
-                  <p className="text-sm text-zinc-300 font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
                     {event.description}
                   </p>
                 </div>

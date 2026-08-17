@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Search, ArrowRight, X, Target, Trophy, HelpCircle, Shield, FileText } from 'lucide-react';
-import { PROBLEM_STATEMENTS, TRACKS, FAQS, RULES } from '../data/hackathonData';
+import { Search, ArrowRight, X, Target, Trophy, HelpCircle, Shield } from 'lucide-react';
+import { PROBLEM_STATEMENTS } from '../data/hackathonData';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -23,8 +25,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         e.preventDefault();
         if (isOpen) {
           onClose();
-        } else {
-          // Open handled by parent
         }
       }
       if (e.key === 'Escape' && isOpen) {
@@ -54,8 +54,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-xl animate-fadeIn">
-      <div className="relative w-full max-w-xl bg-[#0b0b14] border border-purple-500/30 rounded-2xl shadow-2xl overflow-hidden font-sans">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/85 backdrop-blur-2xl animate-fadeIn">
+      <div className="relative w-full max-w-xl glass-modal rounded-3xl overflow-hidden font-sans">
         
         {/* Search Input Bar */}
         <div className="flex items-center gap-3 p-4 border-b border-white/10">
@@ -70,7 +70,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           />
           <button
             onClick={onClose}
-            className="p-1 text-zinc-500 hover:text-white rounded transition-colors"
+            className="p-1.5 text-zinc-500 hover:text-white glass-pill rounded-lg transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -99,7 +99,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                           onNavigate(item.id);
                         }
                       }}
-                      className="w-full px-3 py-2.5 rounded-xl hover:bg-white/5 text-zinc-300 hover:text-white flex items-center justify-between text-left transition-colors cursor-pointer"
+                      className="w-full px-3 py-2.5 rounded-2xl hover:bg-white/5 text-zinc-300 hover:text-white flex items-center justify-between text-left transition-colors cursor-pointer"
                     >
                       <div className="flex items-center gap-2.5">
                         <Icon className="w-4 h-4 text-purple-400" />
@@ -128,7 +128,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                         onClose();
                         onNavigate('missions');
                       }}
-                      className="w-full p-3 rounded-xl hover:bg-white/5 text-left transition-colors cursor-pointer border border-transparent hover:border-white/5"
+                      className="w-full p-3 rounded-2xl hover:bg-white/5 text-left transition-colors cursor-pointer border border-transparent hover:border-white/5"
                     >
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-white font-bold font-sans text-sm">{prob.title}</span>

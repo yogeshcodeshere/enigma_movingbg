@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { Globe, Users, Shield, Award, Cpu, Sparkles, Building2, Code2, Palette, Sliders } from 'lucide-react';
+import { Globe, Users, Shield, Building2, Code2, Palette, Sliders } from 'lucide-react';
 import { SPONSORS_DATA, ORGANIZERS_DATA } from '../data/hackathonData';
 
 export const SponsorsOrganizers: React.FC = () => {
@@ -19,24 +21,24 @@ export const SponsorsOrganizers: React.FC = () => {
   };
 
   return (
-    <section id="sponsors" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
+    <section id="sponsors" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       
       {/* 14 — SPONSORS */}
       <div className="mb-28">
         <div className="mb-14 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
             <Building2 className="w-3.5 h-3.5 text-purple-400" />
             <span>{SPONSORS_DATA.sectionLabel}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+          <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
             {SPONSORS_DATA.heading}
           </h2>
-          <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
             {SPONSORS_DATA.body}
           </p>
         </div>
 
-        {/* Sponsor Tiers */}
+        {/* Sponsor Tiers with Glassmorphism */}
         <div className="space-y-8">
           {SPONSORS_DATA.tiers.map((tierGroup, idx) => (
             <div key={idx} className="space-y-4">
@@ -49,7 +51,7 @@ export const SponsorsOrganizers: React.FC = () => {
                 {tierGroup.sponsors.map((sponsor, sIdx) => (
                   <div
                     key={sIdx}
-                    className="p-6 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-purple-500/40 transition-all flex flex-col justify-between group shadow-xl hover:-translate-y-1"
+                    className="p-6 rounded-3xl glass-panel-interactive flex flex-col justify-between group shadow-xl"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-3">
@@ -57,7 +59,7 @@ export const SponsorsOrganizers: React.FC = () => {
                           {sponsor.name}
                         </span>
                         {sponsor.badge && (
-                          <span className="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/30 text-[10px] font-mono-code text-purple-300 font-semibold">
+                          <span className="px-2 py-0.5 rounded-md bg-purple-500/10 border border-purple-500/30 text-[10px] font-mono-code text-purple-300 font-semibold">
                             {sponsor.badge}
                           </span>
                         )}
@@ -82,19 +84,19 @@ export const SponsorsOrganizers: React.FC = () => {
       {/* 15 — ORGANIZERS */}
       <div id="organizers" className="pt-12 border-t border-white/10">
         <div className="mb-14 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
             <Users className="w-3.5 h-3.5 text-purple-400" />
             <span>ORGANIZING COMMITTEE</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+          <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
             {ORGANIZERS_DATA.heading}
           </h2>
-          <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-6">
+          <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed mb-6">
             {ORGANIZERS_DATA.body}
           </p>
 
           {/* CSI SIESGST Feature Box */}
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950/30 to-black/40 border border-purple-500/20">
+          <div className="p-6 rounded-3xl glass-panel border border-purple-500/20 shadow-xl">
             <h4 className="text-lg font-bold font-display text-white mb-1">
               {ORGANIZERS_DATA.organizationName}
             </h4>
@@ -109,11 +111,11 @@ export const SponsorsOrganizers: React.FC = () => {
           {ORGANIZERS_DATA.teams.map((team, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 flex flex-col justify-between shadow-xl"
+              className="p-6 rounded-3xl glass-panel flex flex-col justify-between shadow-xl"
             >
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                  <div className="p-2.5 rounded-2xl glass-pill">
                     {getCategoryIcon(team.category)}
                   </div>
                   <div>

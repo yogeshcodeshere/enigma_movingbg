@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { ShieldCheck, BookOpen, Download, AlertTriangle, FileText, Check } from 'lucide-react';
+import { ShieldCheck, Download, Check } from 'lucide-react';
 import { RULES } from '../data/hackathonData';
 
 export const RulesSection: React.FC = () => {
@@ -42,36 +44,36 @@ Hosted by CSI SIESGST Student Chapter
   };
 
   return (
-    <section id="rules" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
+    <section id="rules" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       {/* Header */}
       <div className="mb-14 max-w-3xl">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
           <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
           <span>THE PROTOCOL</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+        <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
           KNOW THE RULES. BREAK THE BOUNDARIES.
         </h2>
-        <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
           Clear parameters create fair competition. Familiarize yourself with the 8 core operational protocols governing the hackathon arena.
         </p>
       </div>
 
-      {/* 8 Rules Grid */}
+      {/* 8 Rules Grid with Glassmorphic Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12">
         {RULES.map((item) => (
           <div
             key={item.number}
-            className="p-6 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-purple-500/30 transition-all flex items-start gap-4 shadow-xl group"
+            className="p-6 rounded-3xl glass-panel-interactive flex items-start gap-4 shadow-xl group"
           >
-            <div className="w-10 h-10 rounded-xl bg-purple-950/40 border border-purple-500/30 flex items-center justify-center font-black font-display text-purple-300 shrink-0 group-hover:scale-105 group-hover:bg-purple-600 group-hover:text-black transition-all">
+            <div className="w-10 h-10 rounded-2xl bg-purple-950/50 border border-purple-500/40 flex items-center justify-center font-black font-display text-purple-300 shrink-0 group-hover:scale-105 group-hover:bg-purple-600 group-hover:text-black transition-all">
               {item.number}
             </div>
             <div>
               <div className="text-[10px] font-mono-code text-zinc-500 uppercase tracking-widest mb-1">
                 PROTOCOL RULE {item.number}
               </div>
-              <p className="text-sm sm:text-base text-zinc-200 font-light leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-200 font-light leading-relaxed">
                 {item.rule}
               </p>
             </div>
@@ -79,14 +81,14 @@ Hosted by CSI SIESGST Student Chapter
         ))}
       </div>
 
-      {/* Rulebook Download CTA Bar */}
-      <div className="p-8 rounded-3xl bg-gradient-to-r from-purple-950/40 via-black/60 to-[#080810] border border-purple-500/30 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+      {/* Rulebook Download CTA Bar with Glassmorphism */}
+      <div className="p-6 sm:p-8 rounded-3xl glass-panel border border-purple-500/30 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="space-y-1 text-center sm:text-left">
-          <h3 className="text-xl font-bold font-display text-white">
+          <h3 className="text-lg sm:text-xl font-bold font-display text-white">
             NEED DETAILED INTELLECTUAL PROPERTY & SUBMISSION POLICIES?
           </h3>
           <p className="text-xs sm:text-sm text-zinc-400 font-light">
-            Download the complete PDF/Markdown rulebook including grading rubrics and dispute resolution.
+            Download the complete Markdown rulebook including grading rubrics and dispute resolution.
           </p>
         </div>
 

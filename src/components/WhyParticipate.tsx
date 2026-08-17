@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Hammer, Users, Sparkles, Award, Trophy, Briefcase, BarChart3, CheckCircle, Scale } from 'lucide-react';
+import { Hammer, Users, Sparkles, Award, Trophy, Briefcase, Scale } from 'lucide-react';
 import { WHY_PARTICIPATE, JUDGING_CRITERIA } from '../data/hackathonData';
 
 export const WhyParticipate: React.FC = () => {
@@ -25,32 +27,32 @@ export const WhyParticipate: React.FC = () => {
   };
 
   return (
-    <section id="why" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
+    <section id="why" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       
       {/* 10 — WHY PARTICIPATE? */}
       <div className="mb-28">
         <div className="mb-14 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
             <span>VALUE PROPOSITION</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+          <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
             WHAT'S IN IT FOR YOU?
           </h2>
-          <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
             Whether you are here to build, learn, compete, or connect — ENIGMA offers exponential returns on your 36 hours of focused sprint effort.
           </p>
         </div>
 
-        {/* 6 Grid Cards */}
+        {/* 6 Grid Cards with Glassmorphism */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {WHY_PARTICIPATE.map((card) => (
             <div
               key={card.number}
-              className="p-8 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-purple-500/40 transition-all duration-300 flex flex-col justify-between group shadow-xl hover:-translate-y-1"
+              className="p-6 sm:p-8 rounded-3xl glass-panel-interactive flex flex-col justify-between group shadow-xl"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 group-hover:scale-105 transition-transform">
+                  <div className="p-3.5 rounded-2xl glass-pill group-hover:scale-105 transition-transform">
                     {getIcon(card.icon)}
                   </div>
                   <span className="text-2xl font-black font-display text-zinc-600 group-hover:text-purple-400 transition-colors">
@@ -62,7 +64,7 @@ export const WhyParticipate: React.FC = () => {
                   {card.title}
                 </h3>
 
-                <p className="text-sm text-zinc-400 font-light leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed">
                   {card.description}
                 </p>
               </div>
@@ -79,29 +81,29 @@ export const WhyParticipate: React.FC = () => {
       {/* 11 — JUDGING CRITERIA */}
       <div id="judging" className="pt-12 border-t border-white/10">
         <div className="mb-14 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
             <Scale className="w-3.5 h-3.5 text-purple-400" />
             <span>EVALUATION PROTOCOL</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+          <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
             HOW WILL YOU BE JUDGED?
           </h2>
-          <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
             Our jury panel evaluates every prototype transparently against six core pillars. Focus your efforts to maximize scores across the evaluation matrix.
           </p>
         </div>
 
-        {/* Judging Metrics Matrix */}
+        {/* Judging Metrics Matrix with Glassmorphic Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {JUDGING_CRITERIA.map((criterion, idx) => (
             <div
               key={idx}
               onMouseEnter={() => setActiveCriteriaIdx(idx)}
               onMouseLeave={() => setActiveCriteriaIdx(null)}
-              className={`p-6 sm:p-8 rounded-2xl bg-black/40 backdrop-blur-md border transition-all duration-300 flex flex-col justify-between shadow-xl ${
+              className={`p-6 sm:p-8 rounded-3xl transition-all duration-300 flex flex-col justify-between shadow-xl ${
                 activeCriteriaIdx === idx
-                  ? 'border-purple-500 bg-purple-950/20 shadow-purple-900/30'
-                  : 'border-white/10 hover:border-white/20'
+                  ? 'glass-panel border-purple-500 bg-purple-950/20 shadow-purple-900/30 ring-1 ring-purple-500/30'
+                  : 'glass-panel-interactive'
               }`}
             >
               <div>
@@ -121,11 +123,11 @@ export const WhyParticipate: React.FC = () => {
                   {criterion.title}
                 </h3>
 
-                <p className="text-sm text-zinc-300 font-medium mb-3">
+                <p className="text-xs sm:text-sm text-zinc-300 font-medium mb-3">
                   {criterion.description}
                 </p>
 
-                <div className="p-3 rounded-lg bg-white/5 border border-white/5 text-xs font-mono-code text-zinc-400 leading-relaxed">
+                <div className="p-3.5 rounded-xl glass-pill text-xs font-mono-code text-zinc-400 leading-relaxed">
                   <span className="text-zinc-500 uppercase block text-[10px] mb-1">EVALUATION METRIC:</span>
                   {criterion.metric}
                 </div>

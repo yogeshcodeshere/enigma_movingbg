@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
-import { Search, Menu, X, Terminal, ArrowRight, ShieldCheck } from 'lucide-react';
-import { HERO_DATA } from '../data/hackathonData';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   onOpenRegister: () => void;
-  onOpenSearch: () => void;
-  onOpenTerminal: () => void;
+  onOpenSearch?: () => void;
+  onOpenTerminal?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, onOpenSearch, onOpenTerminal }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { label: 'Overview', href: '#hero' },
-    { label: 'About', href: '#about' },
+    { label: 'Theme 2097', href: '#theme-story' },
     { label: 'Missions', href: '#missions' },
-    { label: 'Tracks', href: '#tracks' },
+    { label: 'Domains', href: '#tracks' },
     { label: 'Protocol', href: '#protocol' },
     { label: 'Timeline', href: '#timeline' },
     { label: 'Prizes', href: '#prizes' },
@@ -32,31 +48,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, onOpenSearch, on
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-[#06060a]/80 backdrop-blur-xl border-b border-white/10 transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-[#06060a]/80 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-black/70'
+          : 'bg-transparent border-b border-transparent backdrop-blur-none'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 h-20 sm:h-24 flex items-center justify-between sm:justify-center sm:gap-10 md:gap-12 lg:gap-14">
         
-        {/* Brand & Organization Title */}
-        <div className="flex items-center gap-3">
-          <a
-            href="#hero"
-            className="flex items-center gap-2.5 group cursor-pointer text-decoration-none"
-          >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center font-black font-display text-white text-sm shadow-md group-hover:scale-105 transition-transform">
-              E
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold font-display tracking-wider text-white group-hover:text-purple-400 transition-colors">
-                ENIGMA
-              </span>
-              <span className="text-[9px] font-mono-code text-zinc-400 tracking-widest uppercase">
-                CSI SIESGST
-              </span>
-            </div>
-          </a>
-        </div>
-
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-6 text-xs font-medium text-zinc-300">
+        {/* Centered Desktop Navigation Links */}
+        <nav className="hidden sm:flex items-center gap-7 md:gap-9 lg:gap-11 text-sm md:text-[15px] font-semibold text-zinc-200">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -65,64 +67,39 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, onOpenSearch, on
                 e.preventDefault();
                 handleNavClick(link.href);
               }}
-              className="hover:text-white transition-colors relative py-1 hover:after:w-full after:w-0 after:h-0.5 after:bg-purple-500 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
+              className="hover:text-white transition-all relative py-2 hover:after:w-full after:w-0 after:h-0.5 after:bg-purple-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200 cursor-pointer tracking-wider font-mono-code uppercase drop-shadow-md hover:scale-105"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* Right Action Icons & Register Button */}
-        <div className="flex items-center gap-3">
-          {/* Quick Search Ctrl+K Button */}
-          <button
-            id="btn-nav-search"
-            onClick={onOpenSearch}
-            className="hidden sm:flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono-code text-zinc-400 hover:text-white transition-colors cursor-pointer"
-            title="Search Sections and Problems (Ctrl+K)"
-          >
-            <Search className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Search</span>
-            <kbd className="text-[10px] bg-black/40 px-1.5 py-0.5 rounded border border-white/10 text-zinc-400">
-              ⌘K
-            </kbd>
-          </button>
-
-          {/* Cipher Terminal Button */}
-          <button
-            id="btn-nav-terminal"
-            onClick={onOpenTerminal}
-            className="hidden sm:flex items-center gap-1.5 p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-purple-300 hover:text-white transition-colors cursor-pointer"
-            title="Open Cipher Decryptor Terminal"
-          >
-            <Terminal className="w-3.5 h-3.5 text-purple-400" />
-          </button>
-
-          {/* Primary Registration CTA Button */}
+        {/* Register CTA Button */}
+        <div className="flex items-center gap-4">
           <button
             id="btn-nav-register"
             onClick={onOpenRegister}
-            className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold font-display tracking-wider uppercase flex items-center gap-1.5 shadow-lg shadow-purple-900/30 transition-all hover:scale-102 active:scale-98 cursor-pointer"
+            className="px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-2xl bg-purple-600/90 hover:bg-purple-500 text-white text-xs sm:text-sm font-bold font-display tracking-widest uppercase flex items-center gap-2 shadow-xl shadow-purple-950/60 border border-purple-400/40 transition-all hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md"
           >
             <span>REGISTER</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-4 h-4" />
           </button>
 
           {/* Mobile Menu Hamburger */}
           <button
             id="btn-nav-mobile-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg bg-white/5 text-zinc-300 hover:text-white"
+            className="sm:hidden p-3 rounded-2xl glass-pill text-zinc-200 hover:text-white focus:outline-none"
             aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0a0a10] border-b border-white/10 px-6 py-6 space-y-4">
+        <div className="sm:hidden glass-modal border-b border-white/10 px-6 py-6 space-y-4 animate-fadeIn">
           <div className="grid grid-cols-2 gap-3 text-sm">
             {navLinks.map((link) => (
               <a
@@ -132,42 +109,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, onOpenSearch, on
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="p-2.5 rounded-lg bg-white/5 hover:bg-purple-900/30 text-zinc-300 hover:text-white font-medium transition-colors"
+                className="p-3 rounded-2xl glass-pill hover:bg-purple-900/30 text-zinc-200 hover:text-white font-semibold transition-colors text-center font-mono-code"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenSearch();
-              }}
-              className="w-full py-2.5 px-4 rounded-lg bg-white/5 border border-white/10 text-xs font-mono-code text-zinc-300 flex items-center justify-center gap-2"
-            >
-              <Search className="w-4 h-4" />
-              <span>Search Challenges & Rules (⌘K)</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenTerminal();
-              }}
-              className="w-full py-2.5 px-4 rounded-lg bg-purple-950/40 border border-purple-500/30 text-xs font-mono-code text-purple-300 flex items-center justify-center gap-2"
-            >
-              <Terminal className="w-4 h-4 text-purple-400" />
-              <span>Open Cipher Decryptor Terminal</span>
-            </button>
-
+          <div className="pt-3 border-t border-white/10">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenRegister();
               }}
-              className="w-full py-3 px-4 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm tracking-wider uppercase text-center shadow-lg"
+              className="w-full py-4 px-4 rounded-2xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm tracking-widest uppercase text-center shadow-lg shadow-purple-950/40 cursor-pointer"
             >
               REGISTER NOW
             </button>

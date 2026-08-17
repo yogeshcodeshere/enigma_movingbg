@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Brain, ShieldCheck, Layout, TrendingUp, Activity, Compass, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Brain, ShieldCheck, Layout, TrendingUp, Activity, Compass, ArrowRight } from 'lucide-react';
 import { TRACKS } from '../data/hackathonData';
 
 interface TracksSectionProps {
@@ -29,21 +31,21 @@ export const TracksSection: React.FC<TracksSectionProps> = ({ onSelectTrack }) =
   };
 
   return (
-    <section id="tracks" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
+    <section id="tracks" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       {/* Header */}
       <div className="mb-14 max-w-3xl">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
           <span>SECTION 06 // DOMAIN TRACKS</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+        <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
           FIND YOUR DOMAIN.
         </h2>
-        <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
           From intelligent systems to human-centric experiences, choose the battlefield where your ideas can make the biggest impact.
         </p>
       </div>
 
-      {/* Grid of 6 Track Cards */}
+      {/* Grid of 6 Track Cards with Glassmorphism */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {TRACKS.map((track) => {
           const isSelected = activeTrackId === track.id;
@@ -51,16 +53,16 @@ export const TracksSection: React.FC<TracksSectionProps> = ({ onSelectTrack }) =
             <div
               key={track.id}
               onClick={() => setActiveTrackId(track.id)}
-              className={`p-6 sm:p-8 rounded-2xl bg-black/40 backdrop-blur-md border transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xl ${
+              className={`p-6 sm:p-8 rounded-3xl transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xl ${
                 isSelected
-                  ? 'border-purple-500 bg-purple-950/20 shadow-purple-900/30'
-                  : 'border-white/10 hover:border-white/20'
+                  ? 'glass-panel border-purple-500 bg-purple-950/20 shadow-purple-900/30 ring-1 ring-purple-500/30'
+                  : 'glass-panel-interactive'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <div
-                    className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-purple-400 group-hover:text-white group-hover:scale-105 transition-all"
+                    className="p-3.5 rounded-2xl glass-pill group-hover:scale-105 transition-all"
                     style={{ color: track.accentColor }}
                   >
                     {getIcon(track.icon)}
@@ -74,7 +76,7 @@ export const TracksSection: React.FC<TracksSectionProps> = ({ onSelectTrack }) =
                   {track.title}
                 </h3>
 
-                <p className="text-sm text-zinc-400 font-light leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-zinc-400 font-light leading-relaxed mb-6">
                   {track.description}
                 </p>
 
@@ -87,7 +89,7 @@ export const TracksSection: React.FC<TracksSectionProps> = ({ onSelectTrack }) =
                     {track.technologies.slice(0, 3).map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-0.5 rounded bg-white/5 border border-white/5 text-[11px] font-mono-code text-zinc-300"
+                        className="px-2 py-0.5 rounded-md glass-pill text-[11px] font-mono-code text-zinc-300"
                       >
                         {tech}
                       </span>

@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Terminal, Key, CheckCircle, HelpCircle, RefreshCw, Sparkles, Shield } from 'lucide-react';
+import { Key, CheckCircle, HelpCircle, RefreshCw, Shield, Sparkles } from 'lucide-react';
 import { THEME_STORY_DATA, EASTER_EGG_CIPHERS } from '../data/hackathonData';
 
 export const ThemeStory: React.FC = () => {
@@ -16,9 +18,9 @@ export const ThemeStory: React.FC = () => {
 
     if (userInput.trim().toUpperCase() === activeCipher.solution.toUpperCase()) {
       setIsDecrypted(true);
-      setFeedbackMessage('ACCESS GRANTED: Cipher Decoded Successfully! Protocol unsealed.');
+      setFeedbackMessage('ACCESS GRANTED: Protocol unsealed. Welcome to 2097.');
     } else {
-      setFeedbackMessage('ACCESS DENIED: Hash mismatch. Check hint and retry.');
+      setFeedbackMessage('ACCESS DENIED: Hash mismatch. Review hint and retry.');
     }
   };
 
@@ -30,41 +32,51 @@ export const ThemeStory: React.FC = () => {
   };
 
   return (
-    <section id="theme-story" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
-      <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#0b0b14] via-[#08080f] to-[#050508] border border-purple-500/20 shadow-2xl relative overflow-hidden">
-        {/* Cyber glow elements */}
+    <section id="theme-story" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
+      <div className="p-6 sm:p-12 rounded-3xl glass-panel border border-purple-500/20 shadow-2xl relative overflow-hidden">
+        {/* Ambient subtle glow */}
         <div className="absolute top-0 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-10 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
           
-          {/* Left: Story Content */}
+          {/* Left: 2097 Story Narrative */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono-code tracking-widest uppercase">
-              <Key className="w-3.5 h-3.5 text-purple-400" />
-              <span>{THEME_STORY_DATA.sectionLabel}</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase">
+              <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+              <span>THE YEAR IS 2097</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white leading-tight">
-              {THEME_STORY_DATA.heading}
+            <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white leading-tight">
+              THE FUTURE IS UNRAVELING.
             </h2>
 
-            <div className="space-y-3 text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
-              {THEME_STORY_DATA.bodyParagraphs.map((line, idx) => (
-                <p key={idx}>{line}</p>
-              ))}
+            <div className="space-y-4 text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
+              <p>
+                Humanity has reached a future it once believed would be perfect. But the systems built to make life better have begun to fail.
+              </p>
+              <div className="p-4 rounded-2xl glass-panel border-l-4 border-purple-500 font-medium text-white space-y-1">
+                <p className="text-purple-300 font-mono-code text-sm uppercase tracking-wider">CRITICAL FAILING SYSTEMS:</p>
+                <p className="text-lg font-display">Healthcare • Finance • Sustainability</p>
+              </div>
+              <p>
+                Three systems now stand between humanity and the future it imagined.
+              </p>
+              <p className="text-zinc-200">
+                <strong className="text-purple-400 font-semibold">GENESIS</strong> gives innovators a chance to go back to the beginning—to rethink, rebuild and create solutions for a future worth living in.
+              </p>
             </div>
 
             <div className="pt-4 border-t border-white/10">
-              <p className="text-xl sm:text-2xl font-bold font-display text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-white to-cyan-300">
+              <blockquote className="text-xl sm:text-2xl font-bold font-display text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-white to-cyan-300 italic">
                 {THEME_STORY_DATA.keyQuestion}
-              </p>
+              </blockquote>
             </div>
           </div>
 
-          {/* Right: Interactive Cipher Decryption Terminal Widget */}
-          <div className="lg:col-span-5 bg-black/70 backdrop-blur-md rounded-2xl border border-white/10 p-6 font-mono-code shadow-2xl">
-            {/* Terminal Header */}
+          {/* Right: Interactive 2097 Decryptor Console */}
+          <div className="lg:col-span-5 bg-black/70 backdrop-blur-2xl rounded-3xl border border-white/10 p-5 sm:p-6 font-mono-code shadow-2xl">
+            {/* Console Header */}
             <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 text-xs text-zinc-400">
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-1.5">
@@ -72,15 +84,15 @@ export const ThemeStory: React.FC = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
                 </div>
-                <span className="text-zinc-300 font-semibold text-[11px] ml-2">CIPHER_DECRYPTOR.sh</span>
+                <span className="text-zinc-300 font-semibold text-[11px] ml-2">GENESIS_2097_ARCHIVE.sh</span>
               </div>
               <span className="text-[10px] text-purple-400">CIPHER #{activeCipherIdx + 1}/3</span>
             </div>
 
             {/* Terminal Screen */}
             <div className="space-y-4 text-xs">
-              <div className="p-3.5 rounded-lg bg-white/5 border border-white/10 space-y-2">
-                <div className="text-zinc-500 text-[10px] uppercase tracking-wider">ENCRYPTED PAYLOAD:</div>
+              <div className="p-3.5 rounded-xl glass-panel space-y-2">
+                <div className="text-zinc-500 text-[10px] uppercase tracking-wider">ENCRYPTED 2097 LOG:</div>
                 <div className="text-sm font-bold text-cyan-300 break-all select-all">
                   {activeCipher.encoded}
                 </div>
@@ -94,7 +106,7 @@ export const ThemeStory: React.FC = () => {
               <form onSubmit={handleVerify} className="space-y-3">
                 <div>
                   <label className="text-[10px] text-zinc-500 uppercase block mb-1">
-                    ENTER DECRYPTED TEXT:
+                    INPUT DECODED SEQUENCE:
                   </label>
                   <div className="flex gap-2">
                     <input
@@ -102,13 +114,13 @@ export const ThemeStory: React.FC = () => {
                       type="text"
                       value={userInput}
                       onChange={(e) => setUserInput(e.target.value)}
-                      placeholder="e.g. DECODE"
-                      className="flex-1 bg-black/60 border border-white/15 focus:border-purple-500 rounded-lg px-3 py-2 text-white font-mono-code text-xs outline-none uppercase placeholder:text-zinc-600"
+                      placeholder="e.g. GENESIS"
+                      className="flex-1 glass-input rounded-xl px-3 py-2 text-white font-mono-code text-xs outline-none uppercase placeholder:text-zinc-600"
                     />
                     <button
                       id="btn-verify-cipher"
                       type="submit"
-                      className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-lg text-xs transition-colors cursor-pointer"
+                      className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl text-xs transition-colors cursor-pointer"
                     >
                       DECRYPT
                     </button>
@@ -119,7 +131,7 @@ export const ThemeStory: React.FC = () => {
               {/* Feedback Alert */}
               {feedbackMessage && (
                 <div
-                  className={`p-3 rounded-lg text-xs flex items-center gap-2 ${
+                  className={`p-3 rounded-xl text-xs flex items-center gap-2 ${
                     isDecrypted
                       ? 'bg-emerald-950/50 border border-emerald-500/40 text-emerald-300'
                       : 'bg-red-950/50 border border-red-500/40 text-red-300'
@@ -136,14 +148,14 @@ export const ThemeStory: React.FC = () => {
 
               {/* Next Cipher Button */}
               <div className="pt-2 flex justify-between items-center text-[11px] text-zinc-500">
-                <span>ENIGMA_SECURITY_GRID v2.6</span>
+                <span>ENIGMA 5.0 PROTOCOL</span>
                 <button
                   type="button"
                   onClick={handleNextCipher}
                   className="flex items-center gap-1 text-purple-400 hover:text-purple-300 transition-colors cursor-pointer"
                 >
                   <RefreshCw className="w-3 h-3" />
-                  <span>Next Challenge</span>
+                  <span>Next Archive</span>
                 </button>
               </div>
             </div>
