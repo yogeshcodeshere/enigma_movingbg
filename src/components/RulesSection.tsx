@@ -10,23 +10,23 @@ export const RulesSection: React.FC = () => {
   const handleDownloadRulebook = () => {
     setDownloaded(true);
     // Create downloadable markdown text file
-    const rulebookContent = `# ENIGMA 2026 — OFFICIAL RULEBOOK & CODE OF CONDUCT
-Hosted by CSI SIESGST Student Chapter
+    const rulebookContent = `# ENIGMA 5.0 — GENESIS OFFICIAL RULEBOOK
+Theme: GENESIS: BEYOND THE FUTURE
+Venue: SIES GST College, Nerul
+Date: 26 September 2026 (24 Hours)
+Team Size: Exactly 4 Members / Squad
 
 ## 01. ELIGIBILITY & TEAM COMPOSITION
-- Teams must consist of 2 to 4 members.
-- Cross-college and interdisciplinary collaborations are allowed.
+- Exactly 4 members per squad.
+- Open eligibility — students from all colleges and disciplines.
 
 ## 02. ORIGINALITY & IP
-- All code, assets, and prototypes must be developed during the official 36-hour hackathon window.
-- Open-source packages, public APIs, and foundational models are permitted with explicit citations in README.md.
+- All code, architecture, and prototypes must be developed during the 24-hour sprint.
+- Open-source packages and foundational APIs are permitted with citations.
 
 ## 03. SUBMISSION GUIDELINES
-- Submission must include: GitHub Repository URL, Live Hosted Prototype URL, 2-minute Loom/YouTube demo, and slide deck.
-
-## 04. CODE OF CONDUCT
-- Zero tolerance for harassment, discrimination, or abusive behavior.
-- Plagiarism or submitting pre-built repositories results in immediate disqualification.
+- GitHub repo with documentation.
+- Live demo link and presentation deck.
 
 © 2026 CSI SIESGST. All rights reserved.`;
 
@@ -34,7 +34,7 @@ Hosted by CSI SIESGST Student Chapter
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'ENIGMA_2026_OFFICIAL_RULEBOOK.md';
+    a.download = 'ENIGMA_5_OFFICIAL_RULEBOOK.md';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -47,26 +47,26 @@ Hosted by CSI SIESGST Student Chapter
     <section id="rules" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       {/* Header */}
       <div className="mb-14 max-w-3xl">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
-          <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
-          <span>THE PROTOCOL</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-zinc-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#ff3377]" />
+          <span>THE PROTOCOL RULES</span>
         </div>
         <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
-          KNOW THE RULES. BREAK THE BOUNDARIES.
+          KNOW THE RULES. BUILD THE FUTURE.
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
-          Clear parameters create fair competition. Familiarize yourself with the 8 core operational protocols governing the hackathon arena.
+          Clear parameters create fair competition. Familiarize yourself with the 5 core operational protocols governing the ENIGMA 5.0 arena.
         </p>
       </div>
 
-      {/* 8 Rules Grid with Glassmorphic Cards */}
+      {/* Rules Grid with Clean Glassmorphic Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-12">
         {RULES.map((item) => (
           <div
             key={item.number}
             className="p-6 rounded-3xl glass-panel-interactive flex items-start gap-4 shadow-xl group"
           >
-            <div className="w-10 h-10 rounded-2xl bg-purple-950/50 border border-purple-500/40 flex items-center justify-center font-black font-display text-purple-300 shrink-0 group-hover:scale-105 group-hover:bg-purple-600 group-hover:text-black transition-all">
+            <div className="w-10 h-10 rounded-xl glass-pill flex items-center justify-center font-black font-mono-code text-zinc-300 shrink-0">
               {item.number}
             </div>
             <div>
@@ -81,21 +81,21 @@ Hosted by CSI SIESGST Student Chapter
         ))}
       </div>
 
-      {/* Rulebook Download CTA Bar with Glassmorphism */}
-      <div className="p-6 sm:p-8 rounded-3xl glass-panel border border-purple-500/30 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+      {/* Rulebook Download CTA Bar with Mild Cyberpunk Pink Button */}
+      <div className="p-6 sm:p-8 rounded-3xl glass-panel shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="space-y-1 text-center sm:text-left">
           <h3 className="text-lg sm:text-xl font-bold font-display text-white">
-            NEED DETAILED INTELLECTUAL PROPERTY & SUBMISSION POLICIES?
+            NEED DETAILED PROTOCOL & SUBMISSION POLICIES?
           </h3>
           <p className="text-xs sm:text-sm text-zinc-400 font-light">
-            Download the complete Markdown rulebook including grading rubrics and dispute resolution.
+            Download the official Markdown rulebook including grading rubrics and dispute resolution.
           </p>
         </div>
 
         <button
           id="btn-download-rulebook"
           onClick={handleDownloadRulebook}
-          className="px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold font-display text-xs tracking-wider uppercase flex items-center gap-2 shadow-lg cursor-pointer transition-all shrink-0"
+          className="px-6 py-3.5 rounded-xl bg-[#ff3377] hover:bg-[#ff4d8d] text-white font-mono-code font-bold text-xs tracking-wider uppercase flex items-center gap-2 shadow-[0_0_20px_rgba(255,51,119,0.3)] border border-pink-400/30 cursor-pointer transition-all shrink-0"
         >
           {downloaded ? (
             <>

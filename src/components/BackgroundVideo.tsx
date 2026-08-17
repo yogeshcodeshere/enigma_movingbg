@@ -56,10 +56,7 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none bg-[#050508]">
-      {/* Subtle ambient gradient base */}
-      <div className="absolute inset-0 bg-radial from-purple-950/20 via-[#06060a] to-[#040407]" />
-
-      {/* Primary Cyberpunk Background Video Layer (High Opacity for Main Element Visual Impact) */}
+      {/* Primary Cyberpunk Background Video Layer */}
       {videoVisible && !hasError && (
         <div className={`absolute inset-0 transition-opacity duration-1000 ${videoLoaded ? 'opacity-85' : 'opacity-0'}`}>
           <video
@@ -73,7 +70,7 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
             onLoadedData={() => setVideoLoaded(true)}
             onCanPlay={() => setVideoLoaded(true)}
             onError={() => setHasError(true)}
-            className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.12] saturate-[1.2]"
+            className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.12] saturate-[1.15]"
           />
         </div>
       )}
@@ -81,10 +78,6 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
       {/* Minimalist Glass Contrast Overlays */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#06060a] via-transparent to-[#06060a]/50" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#06060a]/60 via-transparent to-[#06060a]/60" />
-
-      {/* Subtle Ambient Glow Highlights */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/3 right-10 w-[30rem] h-[30rem] bg-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
 
       {/* Floating Glassmorphic Live Feed Control Pill */}
       <div className="fixed bottom-4 right-4 z-40 pointer-events-auto flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-modal text-xs text-zinc-400 font-mono-code shadow-2xl border border-white/10">
@@ -97,7 +90,7 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
           className="p-1.5 hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer"
           title={isPlaying ? 'Pause Background Video' : 'Play Background Video'}
         >
-          {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 text-purple-400" />}
+          {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 text-zinc-300" />}
         </button>
 
         <button
@@ -106,7 +99,7 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
           className="p-1.5 hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer"
           title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
         >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-cyan-400" />}
+          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-zinc-300" />}
         </button>
 
         <button
@@ -115,7 +108,7 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
           className="p-1.5 hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer"
           title={videoVisible ? 'Hide Background Video' : 'Show Background Video'}
         >
-          {videoVisible ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5 text-amber-400" />}
+          {videoVisible ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5 text-zinc-300" />}
         </button>
       </div>
     </div>

@@ -8,13 +8,13 @@ export const AboutIntro: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Binary':
-        return <Binary className="w-6 h-6 text-purple-400" />;
+        return <Binary className="w-6 h-6 text-zinc-300" />;
       case 'Cpu':
-        return <Cpu className="w-6 h-6 text-cyan-400" />;
+        return <Cpu className="w-6 h-6 text-zinc-300" />;
       case 'Zap':
-        return <Zap className="w-6 h-6 text-pink-400" />;
+        return <Zap className="w-6 h-6 text-zinc-300" />;
       default:
-        return <Layers className="w-6 h-6 text-purple-400" />;
+        return <Layers className="w-6 h-6 text-zinc-300" />;
     }
   };
 
@@ -31,8 +31,8 @@ export const AboutIntro: React.FC = () => {
     <section id="about" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       {/* 02 — EVENT INFO OVERVIEW */}
       <div className="mb-20">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-zinc-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ff44f1] animate-pulse" />
           <span>{ABOUT_DATA.sectionLabel}</span>
         </div>
 
@@ -43,13 +43,12 @@ export const AboutIntro: React.FC = () => {
             </h2>
 
             {/* Highlight Box */}
-            <div className="mt-6 p-6 sm:p-8 rounded-3xl glass-panel border border-purple-500/30 relative overflow-hidden shadow-2xl">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
-              <p className="text-base sm:text-xl font-bold font-display tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-purple-400 whitespace-pre-line leading-relaxed">
+            <div className="mt-6 p-6 sm:p-8 rounded-3xl glass-panel relative overflow-hidden shadow-2xl">
+              <p className="text-base sm:text-xl font-bold font-display tracking-wide text-white whitespace-pre-line leading-relaxed">
                 {ABOUT_DATA.highlight}
               </p>
               <div className="mt-4 pt-4 border-t border-white/10 flex flex-wrap items-center gap-2 text-xs font-mono-code text-zinc-400">
-                <span className="text-purple-400 font-bold">REGISTRATIONS:</span>
+                <span className="text-zinc-200 font-bold">REGISTRATIONS:</span>
                 <span>1 SEPTEMBER — 10 SEPTEMBER</span>
               </div>
             </div>
@@ -71,9 +70,9 @@ export const AboutIntro: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="p-4 rounded-2xl glass-panel flex flex-col justify-between space-y-2 text-center items-center hover:border-purple-500/40 transition-colors"
+                className="p-4 rounded-2xl glass-panel flex flex-col justify-between space-y-2 text-center items-center"
               >
-                <div className="p-2.5 rounded-xl glass-pill text-purple-400">
+                <div className="p-2.5 rounded-xl glass-pill text-zinc-300">
                   <Icon className="w-4 h-4" />
                 </div>
                 <div>
@@ -110,22 +109,20 @@ export const AboutIntro: React.FC = () => {
               key={card.number}
               className="p-6 sm:p-8 rounded-3xl glass-panel-interactive flex flex-col justify-between group relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 group-hover:bg-purple-500/15 rounded-full blur-2xl transition-all pointer-events-none" />
-
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-3xl font-black font-display tracking-tight text-zinc-600 group-hover:text-purple-400 transition-colors">
+                  <span className="text-3xl font-black font-display tracking-tight text-zinc-600 group-hover:text-zinc-300 transition-colors">
                     {card.number}
                   </span>
-                  <div className="p-3 rounded-2xl glass-pill group-hover:border-purple-500/40 transition-colors">
+                  <div className="p-3 rounded-2xl glass-pill">
                     {getIcon(card.icon)}
                   </div>
                 </div>
 
-                <div className="text-[10px] font-mono-code text-purple-400 tracking-wider mb-1">
+                <div className="text-[10px] font-mono-code text-zinc-400 tracking-wider mb-1">
                   {card.badge}
                 </div>
-                <h3 className="text-2xl font-bold font-display text-white tracking-tight mb-3 group-hover:text-purple-200 transition-colors">
+                <h3 className="text-2xl font-bold font-display text-white tracking-tight mb-3">
                   {card.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-light">
@@ -133,7 +130,7 @@ export const AboutIntro: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-white/5 flex items-center text-xs font-mono-code text-zinc-500 group-hover:text-purple-300 transition-colors">
+              <div className="pt-6 mt-6 border-t border-white/5 flex items-center text-xs font-mono-code text-zinc-500">
                 <span>GENESIS_PROTOCOL // {card.number}</span>
               </div>
             </div>

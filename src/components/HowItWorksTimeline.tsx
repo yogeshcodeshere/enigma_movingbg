@@ -7,8 +7,8 @@ import { PROTOCOL_STEPS, TIMELINE_EVENTS } from '../data/hackathonData';
 export const HowItWorksTimeline: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
 
-  // Target date: October 24, 2026 09:00:00 IST (UTC+5:30)
-  const targetDate = new Date('2026-10-24T09:00:00+05:30').getTime();
+  // Target date: 26 September 2026 09:00:00 IST (UTC+5:30)
+  const targetDate = new Date('2026-09-26T09:00:00+05:30').getTime();
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -44,18 +44,18 @@ export const HowItWorksTimeline: React.FC = () => {
       {/* 07 — HOW IT WORKS */}
       <div className="mb-28">
         <div className="mb-14 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-zinc-300 text-xs font-mono-code tracking-widest uppercase mb-4">
             <span>THE PROTOCOL</span>
           </div>
           <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
-            FROM IDEA TO EXECUTION.
+            FROM SQUAD TO CODEBASE.
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
-            Follow the six stages of the ENIGMA deployment sequence — from initial squad assembly to final victory on stage.
+            Follow the essential stages of the ENIGMA 5.0 deployment sequence — from initial squad assembly to claiming the ₹25,000 prize pool.
           </p>
         </div>
 
-        {/* 6 Step Interactive Progression Grid with Glassmorphism */}
+        {/* 5 Step Interactive Progression Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROTOCOL_STEPS.map((step, idx) => (
             <div
@@ -63,21 +63,21 @@ export const HowItWorksTimeline: React.FC = () => {
               onClick={() => setActiveStep(idx)}
               className={`p-6 sm:p-8 rounded-3xl transition-all duration-300 flex flex-col justify-between group shadow-xl cursor-pointer ${
                 activeStep === idx
-                  ? 'glass-panel border-purple-500 bg-purple-950/20 shadow-purple-900/30 ring-1 ring-purple-500/30'
+                  ? 'glass-panel border-white/30 bg-white/[0.04] ring-1 ring-white/20'
                   : 'glass-panel-interactive'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-3xl font-black font-display text-zinc-600 group-hover:text-purple-400 transition-colors">
+                  <span className="text-3xl font-black font-display text-zinc-600 group-hover:text-zinc-300 transition-colors">
                     {step.number}
                   </span>
-                  <span className="text-[10px] font-mono-code px-2.5 py-1 rounded-md glass-pill text-purple-300 font-semibold uppercase">
+                  <span className="text-[10px] font-mono-code px-2.5 py-1 rounded-md glass-pill text-zinc-300 font-semibold uppercase">
                     {step.milestone}
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-bold font-display text-white mb-2 tracking-tight group-hover:text-purple-200 transition-colors">
+                <h3 className="text-2xl font-bold font-display text-white mb-2 tracking-tight">
                   {step.title}
                 </h3>
 
@@ -91,8 +91,8 @@ export const HowItWorksTimeline: React.FC = () => {
               </div>
 
               <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono-code text-zinc-500">
-                <span>STAGE 0{idx + 1} OF 06</span>
-                <span className="text-purple-400 font-semibold group-hover:translate-x-1 transition-transform">
+                <span>STAGE 0{idx + 1} OF 05</span>
+                <span className="text-zinc-400 font-semibold group-hover:translate-x-1 transition-transform">
                   PROTOCOL ACTIVE →
                 </span>
               </div>
@@ -104,49 +104,49 @@ export const HowItWorksTimeline: React.FC = () => {
       {/* 08 — TIMELINE & COUNTDOWN */}
       <div id="timeline" className="pt-12 border-t border-white/10">
         <div className="mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
-            <Clock className="w-3.5 h-3.5 text-purple-400" />
-            <span>THE COUNTDOWN</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-zinc-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+            <Clock className="w-3.5 h-3.5 text-cyan-400" />
+            <span>THE 24-HOUR COUNTDOWN</span>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div>
               <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
-                EVERY SECOND COUNTS.
+                26 SEPTEMBER AT SIES GST.
               </h2>
               <p className="text-sm sm:text-base md:text-lg text-zinc-300 max-w-xl font-light leading-relaxed">
-                Mark your calendars. Sync your schedules. The clock is ticking toward the grand opening ceremony.
+                Mark your calendars. Sync your schedules. Registrations open 1 September and close 10 September.
               </p>
             </div>
 
-            {/* Live Countdown Display Box with Glassmorphism */}
-            <div className="countdown-box p-6 rounded-3xl glass-panel border border-purple-500/30 shadow-2xl flex items-center gap-4 sm:gap-6 justify-center">
+            {/* Live Countdown Display Box */}
+            <div className="countdown-box p-6 rounded-3xl glass-panel shadow-2xl flex items-center gap-4 sm:gap-6 justify-center">
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-black font-display text-white tracking-tight">
                   {String(timeLeft.days).padStart(2, '0')}
                 </div>
-                <div className="text-[10px] font-mono-code text-purple-400 uppercase tracking-widest mt-1">DAYS</div>
+                <div className="text-[10px] font-mono-code text-zinc-400 uppercase tracking-widest mt-1">DAYS</div>
               </div>
               <span className="text-2xl font-bold text-zinc-600">:</span>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-black font-display text-white tracking-tight">
                   {String(timeLeft.hours).padStart(2, '0')}
                 </div>
-                <div className="text-[10px] font-mono-code text-purple-400 uppercase tracking-widest mt-1">HRS</div>
+                <div className="text-[10px] font-mono-code text-zinc-400 uppercase tracking-widest mt-1">HRS</div>
               </div>
               <span className="text-2xl font-bold text-zinc-600">:</span>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-black font-display text-white tracking-tight">
                   {String(timeLeft.minutes).padStart(2, '0')}
                 </div>
-                <div className="text-[10px] font-mono-code text-purple-400 uppercase tracking-widest mt-1">MIN</div>
+                <div className="text-[10px] font-mono-code text-zinc-400 uppercase tracking-widest mt-1">MIN</div>
               </div>
               <span className="text-2xl font-bold text-zinc-600">:</span>
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-black font-display text-white tracking-tight text-purple-400">
+                <div className="text-3xl sm:text-4xl font-black font-display text-white tracking-tight text-cyan-400">
                   {String(timeLeft.seconds).padStart(2, '0')}
                 </div>
-                <div className="text-[10px] font-mono-code text-purple-400 uppercase tracking-widest mt-1">SEC</div>
+                <div className="text-[10px] font-mono-code text-zinc-400 uppercase tracking-widest mt-1">SEC</div>
               </div>
             </div>
           </div>
@@ -163,13 +163,13 @@ export const HowItWorksTimeline: React.FC = () => {
                 key={index}
                 className={`p-6 sm:p-7 rounded-3xl transition-all duration-300 flex flex-col justify-between shadow-xl ${
                   isActive
-                    ? 'glass-panel border-purple-500 bg-purple-950/30 shadow-purple-900/30 ring-1 ring-purple-500/30'
+                    ? 'glass-panel border-white/20 bg-white/[0.04] ring-1 ring-white/20'
                     : 'glass-panel-interactive'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-xs font-mono-code font-bold text-purple-400">
+                    <span className="text-xs font-mono-code font-bold text-zinc-300">
                       {event.date}
                     </span>
                     <span
@@ -177,7 +177,7 @@ export const HowItWorksTimeline: React.FC = () => {
                         isCompleted
                           ? 'bg-zinc-800/80 text-zinc-400 border border-zinc-700'
                           : isActive
-                          ? 'bg-purple-500 text-black font-bold animate-pulse'
+                          ? 'bg-[#ff44f1] text-white font-mono-code font-bold shadow-[0_0_12px_rgba(255,68,241,0.35)]'
                           : 'glass-pill text-zinc-400'
                       }`}
                     >

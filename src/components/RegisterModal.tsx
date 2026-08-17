@@ -251,7 +251,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({
                 <button
                   id="btn-submit-registration"
                   type="submit"
-                  className="w-full py-4 rounded-2xl bg-purple-600 hover:bg-purple-500 text-white font-bold font-display text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-xl border border-purple-400/30 cursor-pointer transition-all hover:scale-[1.01]"
+                  className="w-full py-4 rounded-xl bg-[#ff44f1] hover:bg-[#ff6bf4] text-white font-mono-code font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(255,68,241,0.35)] border border-pink-300/40 cursor-pointer transition-all hover:scale-[1.01]"
                 >
                   <span>SUBMIT 4-MEMBER SQUAD REGISTRATION</span>
                   <ArrowRight className="w-4 h-4" />

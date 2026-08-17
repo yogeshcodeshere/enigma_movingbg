@@ -12,7 +12,7 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
   onOpenRegister,
   onExploreMissions,
 }) => {
-  const [selectedRole, setSelectedRole] = useState('ALL');
+  const [selectedRole] = useState('ALL');
 
   const simulatedHackers = [
     { name: 'Alex M.', role: 'AI / LangChain', college: 'SIESGST', seeking: 'Frontend Designer' },
@@ -30,15 +30,12 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
     <section id="community" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       
       {/* 16 — COMMUNITY / DISCORD */}
-      <div className="mb-28 p-6 sm:p-12 rounded-3xl glass-panel border border-purple-500/30 shadow-2xl relative overflow-hidden">
-        {/* Glow corner */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-
+      <div className="mb-28 p-6 sm:p-12 rounded-3xl glass-panel shadow-2xl relative overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
           
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase">
-              <MessageSquare className="w-3.5 h-3.5 text-purple-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-zinc-300 text-xs font-mono-code tracking-widest uppercase">
+              <MessageSquare className="w-3.5 h-3.5 text-[#ff44f1]" />
               <span>THE NETWORK</span>
             </div>
 
@@ -47,7 +44,7 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg text-zinc-300 font-light leading-relaxed">
-              Join the ENIGMA Discord community for announcements, updates, team formation, mentorship, discussions, and everything happening before the hackathon.
+              Join the ENIGMA community for announcements, updates, team formation, mentorship, discussions, and everything happening before the hackathon.
             </p>
 
             <div className="space-y-3 pt-2">
@@ -56,12 +53,12 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
                 href="https://discord.com"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#5865F2] hover:bg-[#4752c4] text-white font-bold font-display text-xs sm:text-sm tracking-wider uppercase shadow-lg shadow-[#5865F2]/30 transition-all hover:scale-102 active:scale-98"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#5865F2] hover:bg-[#4752c4] text-white font-mono-code font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg shadow-[#5865F2]/30 transition-all hover:scale-102 active:scale-98"
               >
                 <span>JOIN THE COMMUNITY →</span>
               </a>
 
-              <p className="text-xs font-mono-code text-purple-400 font-medium block">
+              <p className="text-xs font-mono-code text-zinc-400 font-medium block">
                 YOUR NEXT TEAMMATE MIGHT ALREADY BE HERE.
               </p>
             </div>
@@ -71,7 +68,7 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
           <div className="lg:col-span-6 bg-black/60 backdrop-blur-2xl rounded-2xl border border-white/10 p-5 sm:p-6 font-mono-code">
             <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 text-xs">
               <div className="flex items-center gap-2 text-zinc-300">
-                <Users className="w-4 h-4 text-purple-400" />
+                <Users className="w-4 h-4 text-[#ff44f1]" />
                 <span className="font-bold">TEAM FORMATION INCUBATOR</span>
               </div>
               <span className="flex items-center gap-1.5 text-emerald-400 text-[10px]">
@@ -85,12 +82,12 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
               {filteredHackers.map((hacker, idx) => (
                 <div
                   key={idx}
-                  className="p-3 rounded-xl glass-pill hover:border-purple-500/30 transition-colors flex items-center justify-between text-xs"
+                  className="p-3 rounded-xl glass-pill hover:bg-white/10 transition-colors flex items-center justify-between text-xs"
                 >
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-white">{hacker.name}</span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-zinc-300 font-semibold">
                         {hacker.role}
                       </span>
                     </div>
@@ -101,7 +98,7 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
                     href="https://discord.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="px-2.5 py-1 rounded-lg glass-pill hover:bg-purple-600 hover:text-white text-zinc-300 text-[10px] font-semibold transition-colors"
+                    className="px-2.5 py-1 rounded-lg glass-pill hover:bg-[#ff44f1] hover:text-white text-zinc-300 text-[10px] font-semibold transition-colors"
                   >
                     CONNECT
                   </a>
@@ -110,7 +107,7 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
             </div>
 
             <div className="text-[10px] text-zinc-500 text-center">
-              Verified Discord bot matches solo registrants within 10 minutes of sign up.
+              Verified Discord channel matches solo registrants within 10 minutes of sign up.
             </div>
           </div>
 
@@ -118,13 +115,10 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
       </div>
 
       {/* 17 — FINAL CTA with Minimalistic Glassmorphism */}
-      <div id="final-cta" className="p-8 sm:p-16 rounded-3xl glass-panel border border-purple-500/40 shadow-2xl text-center relative overflow-hidden">
-        <div className="absolute inset-0 cyber-grid opacity-20" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-purple-600/15 rounded-full blur-3xl pointer-events-none" />
-
+      <div id="final-cta" className="p-8 sm:p-16 rounded-3xl glass-panel shadow-2xl text-center relative overflow-hidden">
         <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase">
-            <Zap className="w-3.5 h-3.5 text-purple-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-zinc-300 text-xs font-mono-code tracking-widest uppercase">
+            <Zap className="w-3.5 h-3.5 text-[#ff44f1]" />
             <span>FINAL PROTOCOL INITIATION</span>
           </div>
 
@@ -136,32 +130,32 @@ export const CommunityFinalCTA: React.FC<CommunityFinalCTAProps> = ({
             <p>The challenge is waiting.</p>
             <p>The clock is ticking.</p>
             <p>Your solution is still an idea.</p>
-            <p className="text-xl sm:text-2xl font-bold font-display text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-white to-purple-400 pt-2">
+            <p className="text-xl sm:text-2xl font-bold font-display text-white pt-2">
               Make it real.
             </p>
           </div>
 
-          {/* Action CTAs */}
+          {/* Action CTAs with Cyberpunk #ff44f1 button */}
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               id="btn-final-enter-enigma"
               onClick={onOpenRegister}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold font-display text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-xl shadow-purple-950/50 hover:scale-105 active:scale-98 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#ff44f1] hover:bg-[#ff6bf4] text-white font-mono-code font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(255,68,241,0.35)] border border-pink-300/40 hover:scale-105 active:scale-98 transition-all cursor-pointer"
             >
-              <span>ENTER ENIGMA →</span>
+              <span>[ ENTER ENIGMA → ]</span>
             </button>
 
             <button
               id="btn-final-view-problems"
               onClick={onExploreMissions}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl glass-pill hover:bg-white/10 text-zinc-200 hover:text-white font-bold font-display text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl glass-pill hover:bg-white/10 text-zinc-200 hover:text-white font-mono-code font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <span>VIEW PROBLEM STATEMENTS</span>
             </button>
           </div>
 
           <div className="text-xs font-mono-code text-zinc-500 pt-4">
-            REGISTRATION DEADLINE: 10 SEPTEMBER 2026 // LIMITED SQUAD SLOTS
+            REGISTRATION DEADLINE: 10 SEPTEMBER 2026 // 4 MEMBERS PER SQUAD
           </div>
         </div>
       </div>

@@ -129,7 +129,7 @@ export const ChallengeModal: React.FC<ChallengeModalProps> = ({
               onSelectForRegister(challenge);
               onClose();
             }}
-            className="w-full sm:w-auto flex-1 py-3 px-6 rounded-2xl bg-purple-600 hover:bg-purple-500 text-white font-bold font-display text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-lg cursor-pointer transition-colors"
+            className="w-full sm:w-auto flex-1 py-3 px-6 rounded-xl bg-[#ff44f1] hover:bg-[#ff6bf4] text-white font-mono-code font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,68,241,0.35)] border border-pink-300/40 cursor-pointer transition-all"
           >
             <span>REGISTER WITH THIS CHALLENGE</span>
             <ArrowRight className="w-4 h-4" />

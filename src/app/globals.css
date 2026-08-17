@@ -7,14 +7,15 @@
     --font-display: 'Syne', 'Space Grotesk', sans-serif;
     --font-accent: 'Cabinet Grotesk', sans-serif;
 
-    /* Minimalistic Obsidian & Violet Palette */
+    /* Clean Obsidian & Cyberpunk #ff44f1 Palette */
     --bg-base: #06060a;
-    --bg-surface: rgba(13, 13, 22, 0.65);
-    --bg-surface-hover: rgba(22, 22, 38, 0.75);
+    --bg-surface: rgba(12, 12, 18, 0.6);
+    --bg-surface-hover: rgba(20, 20, 28, 0.7);
     --border-glass: rgba(255, 255, 255, 0.08);
     --border-glass-highlight: rgba(255, 255, 255, 0.16);
-    --glow-violet: rgba(168, 85, 247, 0.35);
-    --glow-cyan: rgba(6, 182, 212, 0.35);
+    --cyber-pink: #ff44f1;
+    --cyber-pink-hover: #ff6bf4;
+    --cyber-pink-glow: rgba(255, 68, 241, 0.32);
   }
 
   html {
@@ -33,70 +34,65 @@
 
   /* Minimalistic ultra-thin custom scrollbar */
   ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
   }
-
   ::-webkit-scrollbar-track {
     background: #050508;
   }
-
   ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 9999px;
   }
-
   ::-webkit-scrollbar-thumb:hover {
-    background: #a855f7;
+    background: #ff44f1;
   }
 }
 
 /* ==========================================================
-   GLASSMORPHISM DESIGN SYSTEM UTILITIES
+   CLEAN NEUTRAL MINIMALIST GLASSMORPHISM (ZERO TINTS)
    ========================================================== */
 
 /* Core Glassmorphic Surface Panel */
 .glass-panel {
-  background: rgba(10, 10, 18, 0.55);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(12, 12, 18, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* Interactive Glass Panel with Refined Glow Hover State */
+/* Interactive Neutral Glass Panel - Clean Subtle Highlight */
 .glass-panel-interactive {
-  background: rgba(10, 10, 18, 0.5);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(12, 12, 18, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.4);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .glass-panel-interactive:hover {
-  background: rgba(18, 18, 32, 0.65);
-  border-color: rgba(168, 85, 247, 0.35);
-  box-shadow: 0 12px 36px -2px rgba(0, 0, 0, 0.6), 0 0 20px -2px rgba(168, 85, 247, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
-  transform: translateY(-2px);
+  background: rgba(18, 18, 26, 0.65);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 28px -2px rgba(0, 0, 0, 0.6);
 }
 
-/* High-Elevation Glass Modal Dialogs */
+/* Clean High-Elevation Glass Modal Dialogs */
 .glass-modal {
-  background: rgba(8, 8, 14, 0.85);
-  backdrop-filter: blur(28px) saturate(190%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.8), 0 0 40px -8px rgba(168, 85, 247, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.85);
 }
 
-/* Glass Badge / Pill */
+/* Neutral Glass Badge / Pill */
 .glass-pill {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Glass Form Inputs */
@@ -106,13 +102,13 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .glass-input:focus {
   background: rgba(6, 6, 12, 0.7);
-  border-color: #a855f7;
-  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-color: #ff44f1;
+  box-shadow: 0 0 0 2px rgba(255, 68, 241, 0.22), inset 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Ultra-Subtle Almost Invisible Navigation Bar */
@@ -129,49 +125,77 @@
   border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Glow Text Effects */
-.glow-purple {
-  text-shadow: 0 0 24px rgba(168, 85, 247, 0.45);
+/* ==========================================================
+   CYBERPUNK MINIMALIST #ff44f1 BUTTON STYLES
+   ========================================================== */
+
+.btn-cyber-pink {
+  background-color: #ff44f1;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px -2px rgba(255, 68, 241, 0.32);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glow-cyan {
-  text-shadow: 0 0 24px rgba(6, 182, 212, 0.45);
+.btn-cyber-pink:hover {
+  background-color: #ff6bf4;
+  box-shadow: 0 0 28px 0 rgba(255, 68, 241, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-cyber-pink:active {
+  transform: scale(0.98);
+}
+
+/* Cyberpunk Minimalist Navbar Button */
+.btn-nav-cyber {
+  background: #ff44f1;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 18px -2px rgba(255, 68, 241, 0.3);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-nav-cyber:hover {
+  background: #ff6bf4;
+  box-shadow: 0 0 24px rgba(255, 68, 241, 0.48);
+  transform: translateY(-1px);
+}
+
+.btn-nav-cyber:active {
+  transform: scale(0.97);
 }
 
 /* ==========================================================
-   GENESIS CYBERPUNK FLICKER ANIMATION
+   GENESIS CYBERPUNK FLICKER ANIMATION (#ff44f1 / NEUTRAL)
    ========================================================== */
 
 @keyframes genesisFlicker {
-
-  0%,
-  18.999%,
-  21.5%,
-  62.999%,
-  64.5%,
-  65.999%,
-  71%,
-  100% {
+  0%, 18.999%, 21.5%, 62.999%, 64.5%, 65.999%, 71%, 100% {
     opacity: 1;
-    filter: drop-shadow(0 0 45px rgba(168, 85, 247, 0.5)) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+    filter: drop-shadow(0 0 35px rgba(255, 68, 241, 0.35)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
   }
-
-  19%,
-  21.499% {
+  19%, 21.499% {
     opacity: 0.35;
-    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.15));
+    filter: drop-shadow(0 0 6px rgba(255, 68, 241, 0.12));
   }
-
-  63%,
-  64.499% {
+  63%, 64.499% {
     opacity: 0.55;
-    filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.25));
+    filter: drop-shadow(0 0 14px rgba(255, 68, 241, 0.2));
   }
-
-  66%,
-  70.999% {
+  66%, 70.999% {
     opacity: 0.85;
-    filter: drop-shadow(0 0 32px rgba(168, 85, 247, 0.4));
+    filter: drop-shadow(0 0 24px rgba(255, 68, 241, 0.28));
   }
 }
 
@@ -180,13 +204,54 @@
 }
 
 /* ==========================================================
-   EXPLICIT MEDIA QUERIES FOR COMPREHENSIVE RESPONSIVENESS
+   COMPREHENSIVE RESPONSIVE MEDIA QUERIES
    ========================================================== */
 
-/* 1. Mobile Handhelds (max-width: 640px) */
+/* 1. Extra Small Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-genesis-title {
+    font-size: clamp(3rem, 16vw, 4.5rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.05em !important;
+  }
+
+  .hero-tagline {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.15em !important;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.25em !important;
+    padding-left: 4px !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 7.5vw, 2.1rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .countdown-box {
+    padding: 0.875rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .countdown-box .text-3xl {
+    font-size: 1.5rem !important;
+  }
+
+  .glass-modal {
+    max-height: 92dvh !important;
+    width: 96vw !important;
+    padding: 1rem !important;
+    border-radius: 1.25rem !important;
+  }
+}
+
+/* 2. Standard Mobile Phones (max-width: 640px) */
 @media (max-width: 640px) {
-  .hero-headline {
-    font-size: clamp(3.25rem, 14vw, 5.5rem) !important;
+  .hero-genesis-title {
+    font-size: clamp(4rem, 18vw, 6.5rem) !important;
     line-height: 0.95 !important;
     letter-spacing: -0.04em !important;
   }
@@ -196,31 +261,95 @@
   }
 
   .glass-modal {
-    max-height: 88dvh !important;
+    max-height: 90dvh !important;
     width: 95vw !important;
     padding: 1.25rem !important;
-    border-radius: 1.25rem !important;
-  }
-
-  .countdown-box {
-    padding: 1rem !important;
-    gap: 0.75rem !important;
+    border-radius: 1.5rem !important;
   }
 }
 
-/* 2. Tablets and Medium Devices (min-width: 641px) and (max-width: 1024px) */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .hero-headline {
-    font-size: clamp(5.5rem, 12vw, 8.5rem) !important;
+/* 3. Small Tablets & Phablets (min-width: 641px) and (max-width: 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .hero-genesis-title {
+    font-size: clamp(6.5rem, 16vw, 9rem) !important;
+    line-height: 0.95 !important;
+  }
+
+  .section-title {
+    font-size: 2.75rem !important;
   }
 }
 
-/* 3. Accessibility & Reduced Motion */
+/* 4. Medium Tablets & Small Laptops (min-width: 769px) and (max-width: 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-genesis-title {
+    font-size: clamp(9rem, 16vw, 12rem) !important;
+    line-height: 0.92 !important;
+  }
+
+  .section-title {
+    font-size: 3.25rem !important;
+  }
+}
+
+/* 5. Desktops & Large Displays (min-width: 1025px) and (max-width: 1536px) */
+@media (min-width: 1025px) and (max-width: 1536px) {
+  .hero-genesis-title {
+    font-size: clamp(12rem, 16vw, 15rem) !important;
+    line-height: 0.9 !important;
+  }
+}
+
+/* 6. Ultrawide & 4K Displays (min-width: 1537px) */
+@media (min-width: 1537px) {
+  .hero-genesis-title {
+    font-size: clamp(15rem, 16vw, 18rem) !important;
+    line-height: 0.88 !important;
+  }
+}
+
+/* 7. Short Viewport Heights & Landscape Mobile (max-height: 700px) */
+@media (max-height: 700px) {
+  .hero-section-container {
+    padding-top: 5rem !important;
+    padding-bottom: 2rem !important;
+    min-height: 100vh !important;
+  }
+
+  .hero-genesis-title {
+    font-size: clamp(4rem, 15vh, 8rem) !important;
+  }
+}
+
+/* 8. Touch Devices Optimization */
+@media (hover: none) and (pointer: coarse) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* 9. Accessibility: Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .genesis-flicker {
+    animation: none !important;
+  }
+}
+
+/* 10. Print Optimization */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  video, .glass-nav-invisible, header {
+    display: none !important;
   }
 }

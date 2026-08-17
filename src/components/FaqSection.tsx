@@ -27,8 +27,8 @@ export const FaqSection: React.FC = () => {
     <section id="faq" className="py-20 sm:py-28 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
       {/* Header */}
       <div className="mb-12 max-w-3xl">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
-          <HelpCircle className="w-3.5 h-3.5 text-purple-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-zinc-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+          <HelpCircle className="w-3.5 h-3.5 text-[#ff3377]" />
           <span>DECRYPT ANSWERS</span>
         </div>
         <h2 className="section-title text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
@@ -48,7 +48,7 @@ export const FaqSection: React.FC = () => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search keywords (e.g. solo, fee, certificate, tech)..."
+            placeholder="Search keywords (e.g. 4 members, fee, venue, tech)..."
             className="w-full pl-11 pr-4 py-3 glass-input rounded-2xl text-sm text-zinc-200 outline-none transition-colors"
           />
         </div>
@@ -60,7 +60,7 @@ export const FaqSection: React.FC = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-2 rounded-xl text-xs font-mono-code transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-purple-600 text-white font-bold shadow-md shadow-purple-900/30'
+                  ? 'bg-[#ff3377] text-white font-bold shadow-[0_0_18px_rgba(255,51,119,0.3)] border border-pink-400/30'
                   : 'glass-pill text-zinc-400 hover:text-white hover:bg-white/10'
               }`}
             >
@@ -70,7 +70,7 @@ export const FaqSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Accordion FAQ Items with Glassmorphism */}
+      {/* Accordion FAQ Items with Clean Glassmorphism */}
       <div className="space-y-3">
         {filteredFaqs.length > 0 ? (
           filteredFaqs.map((faq, index) => {
@@ -86,7 +86,7 @@ export const FaqSection: React.FC = () => {
                   className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-white/5 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono-code text-purple-400 font-bold">
+                    <span className="text-xs font-mono-code text-[#ff3377] font-bold">
                       Q{String(index + 1).padStart(2, '0')}
                     </span>
                     <span className="text-sm sm:text-lg font-bold font-display text-white">
@@ -95,7 +95,7 @@ export const FaqSection: React.FC = () => {
                   </div>
                   <ChevronDown
                     className={`w-5 h-5 text-zinc-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 text-purple-400' : ''
+                      isOpen ? 'rotate-180 text-[#ff3377]' : ''
                     }`}
                   />
                 </button>
@@ -106,7 +106,7 @@ export const FaqSection: React.FC = () => {
                     <div className="mt-3 flex items-center gap-2 text-[10px] font-mono-code text-zinc-500">
                       <span>CATEGORY: {faq.category}</span>
                       <span>•</span>
-                      <span>VERIFIED ORGANIZER RESPONSE</span>
+                      <span>VERIFIED ENIGMA 5.0 RESPONSE</span>
                     </div>
                   </div>
                 )}
@@ -115,7 +115,7 @@ export const FaqSection: React.FC = () => {
           })
         ) : (
           <div className="p-12 text-center text-zinc-500 font-mono-code text-sm glass-panel rounded-3xl">
-            No matching questions found for "{searchQuery}". Reach out to us at contact@csi-siesgst.org!
+            No matching questions found for "{searchQuery}".
           </div>
         )}
       </div>

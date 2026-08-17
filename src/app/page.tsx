@@ -50,7 +50,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06060a] text-zinc-100 selection:bg-purple-600 selection:text-white relative">
+    <div className="min-h-screen bg-[#06060a] text-zinc-100 selection:bg-[#ff3377] selection:text-white relative">
       {/* Background Ambient Video & Glass Glow Canvas */}
       <BackgroundVideo videoUrl="https://res.cloudinary.com/nldi019k/video/upload/v1786978680/add_a_bit_of_cyberpunk_in_the_1.mp4" />
 
