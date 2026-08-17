@@ -1,0 +1,154 @@
+import React from 'react';
+import { Globe, Users, Shield, Award, Cpu, Sparkles, Building2, Code2, Palette, Sliders } from 'lucide-react';
+import { SPONSORS_DATA, ORGANIZERS_DATA } from '../data/hackathonData';
+
+export const SponsorsOrganizers: React.FC = () => {
+  const getCategoryIcon = (cat: string) => {
+    switch (cat) {
+      case 'CORE TEAM':
+        return <Shield className="w-5 h-5 text-purple-400" />;
+      case 'TECH TEAM':
+        return <Code2 className="w-5 h-5 text-cyan-400" />;
+      case 'DESIGN TEAM':
+        return <Palette className="w-5 h-5 text-pink-400" />;
+      case 'OPERATIONS':
+        return <Sliders className="w-5 h-5 text-amber-400" />;
+      default:
+        return <Users className="w-5 h-5 text-purple-400" />;
+    }
+  };
+
+  return (
+    <section id="sponsors" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto w-full relative">
+      
+      {/* 14 — SPONSORS */}
+      <div className="mb-28">
+        <div className="mb-14 max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+            <Building2 className="w-3.5 h-3.5 text-purple-400" />
+            <span>{SPONSORS_DATA.sectionLabel}</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+            {SPONSORS_DATA.heading}
+          </h2>
+          <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed">
+            {SPONSORS_DATA.body}
+          </p>
+        </div>
+
+        {/* Sponsor Tiers */}
+        <div className="space-y-8">
+          {SPONSORS_DATA.tiers.map((tierGroup, idx) => (
+            <div key={idx} className="space-y-4">
+              <div className="text-xs font-mono-code text-purple-400 font-bold uppercase tracking-widest flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+                <span>{tierGroup.tier}</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {tierGroup.sponsors.map((sponsor, sIdx) => (
+                  <div
+                    key={sIdx}
+                    className="p-6 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-purple-500/40 transition-all flex flex-col justify-between group shadow-xl hover:-translate-y-1"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-lg font-bold font-display text-white group-hover:text-purple-300 transition-colors">
+                          {sponsor.name}
+                        </span>
+                        {sponsor.badge && (
+                          <span className="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/30 text-[10px] font-mono-code text-purple-300 font-semibold">
+                            {sponsor.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-zinc-400 font-light">
+                        {sponsor.role}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 mt-4 border-t border-white/5 flex items-center text-[10px] font-mono-code text-zinc-500 group-hover:text-purple-400 transition-colors">
+                      <span>PARTNER PROTOCOL</span>
+                      <Globe className="w-3 h-3 ml-auto opacity-70" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 15 — ORGANIZERS */}
+      <div id="organizers" className="pt-12 border-t border-white/10">
+        <div className="mb-14 max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono-code tracking-widest uppercase mb-4">
+            <Users className="w-3.5 h-3.5 text-purple-400" />
+            <span>ORGANIZING COMMITTEE</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white mb-4">
+            {ORGANIZERS_DATA.heading}
+          </h2>
+          <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-6">
+            {ORGANIZERS_DATA.body}
+          </p>
+
+          {/* CSI SIESGST Feature Box */}
+          <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950/30 to-black/40 border border-purple-500/20">
+            <h4 className="text-lg font-bold font-display text-white mb-1">
+              {ORGANIZERS_DATA.organizationName}
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+              {ORGANIZERS_DATA.organizationDesc}
+            </p>
+          </div>
+        </div>
+
+        {/* 4 Organizers Sub-teams */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {ORGANIZERS_DATA.teams.map((team, idx) => (
+            <div
+              key={idx}
+              className="p-6 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 flex flex-col justify-between shadow-xl"
+            >
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+                    {getCategoryIcon(team.category)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold font-display text-white text-base">
+                      {team.category}
+                    </h4>
+                    <span className="text-[10px] font-mono-code text-zinc-400">
+                      {team.roleDesc}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-3 pt-3 border-t border-white/5">
+                  {team.leads.map((lead, lIdx) => (
+                    <div key={lIdx} className="flex items-center justify-between text-xs">
+                      <div>
+                        <span className="font-semibold text-zinc-200 block">{lead.name}</span>
+                        <span className="text-[10px] text-zinc-500 font-mono-code">{lead.role}</span>
+                      </div>
+                      <span className="text-[11px] font-mono-code text-purple-400/80 hover:text-purple-300 cursor-pointer">
+                        {lead.handle}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 mt-6 border-t border-white/5 text-[10px] font-mono-code text-zinc-500">
+                TEAM // VERIFIED ORGANIZER
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </section>
+  );
+};

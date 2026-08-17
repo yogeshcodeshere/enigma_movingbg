@@ -1,0 +1,6 @@
+{
+  "name": "ENIGMA — CSI SIESGST Hackathon",
+  "description": "Decode. Build. Disrupt. The premier cyberpunk-inspired hackathon platform by CSI SIESGST with interactive cipher decoding, track exploration, mission statements, and registration portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
